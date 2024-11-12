@@ -1,52 +1,42 @@
 #### Preamble ####
-# Purpose: Simulates a dataset of Australian electoral divisions, including the 
-  #state and party that won each division.
-# Author: Rohan Alexander
-# Date: 26 September 2024
-# Contact: rohan.alexander@utoronto.ca
+# Purpose: Simulates a dataset for Project Hammer, which aims to monitor grocery prices 
+#          across vendors and products to analyze market competition in Canada.
+# Author: Elizabeth Luong and Abdullah Motasim
+# Date: 14 November 2024
+# Contact: elizabethh.luong@mail.utoronto.ca
 # License: MIT
-# Pre-requisites: The `tidyverse` package must be installed
-# Any other information needed? Make sure you are in the `starter_folder` rproj
-
+# Pre-requisites: The `tidyverse` package must be installed.
+# Note: Run this script in an R project workspace if needed.
 
 #### Workspace setup ####
 library(tidyverse)
 set.seed(853)
 
-
 #### Simulate data ####
-# State names
-states <- c(
-  "New South Wales",
-  "Victoria",
-  "Queensland",
-  "South Australia",
-  "Western Australia",
-  "Tasmania",
-  "Northern Territory",
-  "Australian Capital Territory"
+
+# Vendor names (8 vendors as described)
+vendors <- c("Voila", "T&T", "Loblaws", "No Frills", "Metro", "Galleria", "Walmart", "Save-On-Foods")
+
+# Product categories (for variety in products)
+product_categories <- c("Dairy", "Produce", "Bakery", "Meat", "Beverages", "Snacks", "Frozen Foods", "Household Items")
+
+# Product names (a simple list of items in each category)
+product_names <- c("Milk", "Bread", "Apple", "Chicken Breast", "Soda", "Chips", "Frozen Pizza", "Detergent")
+
+# Generate a date range for observation dates
+date_range <- seq(as.Date("2024-02-28"), as.Date("2024-11-01"), by = "day")
+
+# Create a simulated dataset by randomly assigning values to each variable
+hammer_data <- tibble(
+  product_id = 1:1000, # Unique ID for each product
+  product_name = sample(product_names, size = 1000, replace = TRUE),
+  category = sample(product_categories, size = 1000, replace = TRUE),
+  vendor = sample(vendors, size = 1000, replace = TRUE),
+  current_price = round(runif(1000, min = 1, max = 20), 2), # Random price between $1 and $20
+  # Ensure old_price is within 1-20 by constraining it with pmin and pmax
+  old_price = round(pmin(pmax(current_price * runif(1000, min = 0.9, max = 1.1), 1), 20), 2),
+  nowtime = sample(date_range, size = 1000, replace = TRUE) # Random observation dates within the date range
 )
-
-# Political parties
-parties <- c("Labor", "Liberal", "Greens", "National", "Other")
-
-# Create a dataset by randomly assigning states and parties to divisions
-analysis_data <- tibble(
-  division = paste("Division", 1:151),  # Add "Division" to make it a character
-  state = sample(
-    states,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.25, 0.25, 0.15, 0.1, 0.1, 0.1, 0.025, 0.025) # Rough state population distribution
-  ),
-  party = sample(
-    parties,
-    size = 151,
-    replace = TRUE,
-    prob = c(0.40, 0.40, 0.05, 0.1, 0.05) # Rough party distribution
-  )
-)
-
 
 #### Save data ####
-write_csv(analysis_data, "data/00-simulated_data/simulated_data.csv")
+write_csv(hammer_data, "data/00-simulated_data/project_hammer_simulated_data.csv")

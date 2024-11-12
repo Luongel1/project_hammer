@@ -1,0 +1,1001 @@
+product_id,product_name,category,vendor,current_price,old_price,nowtime
+1,Milk,Produce,T&T,9.5,9.89,2024-06-21
+2,Detergent,Dairy,Loblaws,3.36,3.12,2024-04-07
+3,Bread,Beverages,Walmart,12.46,13.34,2024-05-24
+4,Soda,Household Items,Metro,9.32,9.84,2024-05-15
+5,Milk,Bakery,T&T,4.7,4.31,2024-07-24
+6,Soda,Dairy,Loblaws,9.83,9.37,2024-10-29
+7,Frozen Pizza,Frozen Foods,No Frills,14.12,13.18,2024-08-04
+8,Soda,Household Items,No Frills,3.16,2.99,2024-04-05
+9,Bread,Snacks,Voila,12.08,12.24,2024-06-04
+10,Chicken Breast,Produce,Metro,17.78,17.18,2024-10-05
+11,Apple,Household Items,Save-On-Foods,13.94,12.61,2024-03-25
+12,Apple,Bakery,Loblaws,3.63,3.44,2024-08-19
+13,Milk,Household Items,Save-On-Foods,19.75,17.84,2024-08-04
+14,Apple,Dairy,Loblaws,4.74,5.13,2024-04-20
+15,Frozen Pizza,Snacks,Metro,17.48,17.11,2024-10-12
+16,Apple,Bakery,Voila,18.07,18.46,2024-03-07
+17,Frozen Pizza,Meat,Galleria,2.75,2.83,2024-08-08
+18,Apple,Dairy,Save-On-Foods,7.14,7.8,2024-04-20
+19,Bread,Frozen Foods,Loblaws,13.88,13.96,2024-05-08
+20,Soda,Produce,No Frills,8.72,9.34,2024-03-15
+21,Bread,Meat,Voila,17.24,17.55,2024-08-13
+22,Chicken Breast,Frozen Foods,Metro,15.73,16.02,2024-03-11
+23,Soda,Dairy,Save-On-Foods,18.8,18.65,2024-05-03
+24,Chicken Breast,Frozen Foods,Galleria,12.98,12.75,2024-03-07
+25,Detergent,Produce,Save-On-Foods,2.66,2.41,2024-03-26
+26,Detergent,Meat,T&T,9.59,9.22,2024-09-06
+27,Bread,Dairy,T&T,10.42,10.61,2024-05-16
+28,Soda,Snacks,T&T,16.67,16.81,2024-10-10
+29,Bread,Meat,No Frills,4.01,4.16,2024-08-05
+30,Milk,Beverages,Save-On-Foods,3.47,3.16,2024-08-08
+31,Milk,Beverages,Voila,2.3,2.34,2024-04-26
+32,Chicken Breast,Produce,T&T,3.73,3.92,2024-07-19
+33,Frozen Pizza,Produce,Voila,9.76,8.84,2024-08-04
+34,Chips,Produce,Galleria,12.43,13.28,2024-06-28
+35,Soda,Beverages,Loblaws,1.13,1.17,2024-10-21
+36,Apple,Frozen Foods,Walmart,3.97,3.59,2024-10-17
+37,Apple,Snacks,Voila,7.28,7.35,2024-04-08
+38,Bread,Bakery,T&T,5.83,6.22,2024-07-13
+39,Frozen Pizza,Household Items,Loblaws,1.09,1.1,2024-04-19
+40,Milk,Meat,T&T,14.7,14.27,2024-06-09
+41,Apple,Meat,Metro,8.58,9.29,2024-05-20
+42,Detergent,Snacks,No Frills,10.45,11.45,2024-07-01
+43,Bread,Bakery,Loblaws,14.44,13.53,2024-09-11
+44,Detergent,Produce,No Frills,13.16,12.13,2024-06-19
+45,Chips,Snacks,Metro,3.39,3.59,2024-08-02
+46,Milk,Frozen Foods,Walmart,6.28,6.7,2024-04-26
+47,Detergent,Household Items,T&T,6.92,7.45,2024-04-26
+48,Chips,Bakery,Galleria,8.03,8.08,2024-04-21
+49,Milk,Bakery,Save-On-Foods,4.39,4.05,2024-10-22
+50,Detergent,Household Items,Walmart,7.68,7.99,2024-04-23
+51,Chips,Dairy,Loblaws,8.85,8.43,2024-05-06
+52,Detergent,Frozen Foods,Voila,9.44,9.03,2024-07-19
+53,Soda,Dairy,No Frills,16.3,15.8,2024-07-23
+54,Chips,Household Items,Voila,14.9,13.96,2024-09-01
+55,Frozen Pizza,Snacks,No Frills,10.96,10.93,2024-03-29
+56,Soda,Frozen Foods,Voila,5.08,4.71,2024-08-25
+57,Milk,Snacks,Loblaws,7.43,7.15,2024-06-21
+58,Milk,Meat,No Frills,8.07,8.31,2024-05-04
+59,Soda,Bakery,Save-On-Foods,11.6,11.7,2024-10-03
+60,Soda,Household Items,Save-On-Foods,4.22,4.45,2024-09-11
+61,Frozen Pizza,Dairy,Galleria,2.5,2.67,2024-09-30
+62,Chicken Breast,Beverages,Voila,12.99,11.81,2024-10-09
+63,Chips,Produce,Loblaws,8.13,7.41,2024-06-26
+64,Milk,Household Items,Save-On-Foods,3.28,3.02,2024-05-24
+65,Chips,Bakery,Voila,11.26,10.8,2024-04-15
+66,Chicken Breast,Bakery,No Frills,19.46,17.91,2024-10-07
+67,Soda,Meat,Metro,15.32,14,2024-03-28
+68,Milk,Dairy,T&T,19.55,19.17,2024-03-11
+69,Detergent,Snacks,Walmart,7.66,7.73,2024-05-01
+70,Detergent,Snacks,Galleria,6.33,6.05,2024-05-14
+71,Bread,Snacks,T&T,13.88,14.63,2024-03-06
+72,Apple,Household Items,Walmart,5.66,6.02,2024-10-14
+73,Detergent,Snacks,T&T,15.53,15.82,2024-04-23
+74,Soda,Dairy,No Frills,14.24,14.2,2024-08-16
+75,Chips,Bakery,No Frills,1.04,1,2024-07-03
+76,Milk,Bakery,T&T,4.27,4.55,2024-04-17
+77,Milk,Produce,Loblaws,2.6,2.53,2024-10-27
+78,Chicken Breast,Dairy,T&T,19.39,19.88,2024-08-02
+79,Chicken Breast,Dairy,Voila,3.41,3.41,2024-08-28
+80,Apple,Dairy,Loblaws,18.05,18.44,2024-04-30
+81,Apple,Household Items,Save-On-Foods,2.34,2.18,2024-10-21
+82,Frozen Pizza,Meat,T&T,11.38,11.44,2024-07-01
+83,Milk,Bakery,No Frills,8.74,9.08,2024-07-14
+84,Apple,Beverages,Walmart,10.08,9.95,2024-09-16
+85,Chicken Breast,Beverages,No Frills,4.07,3.95,2024-05-08
+86,Chicken Breast,Snacks,Loblaws,3.62,3.42,2024-07-19
+87,Bread,Frozen Foods,T&T,12.94,13.75,2024-03-04
+88,Apple,Produce,No Frills,8.19,7.86,2024-03-30
+89,Soda,Dairy,Save-On-Foods,12.22,12.5,2024-04-06
+90,Chips,Produce,Walmart,9.04,8.55,2024-04-28
+91,Frozen Pizza,Produce,No Frills,17.72,16.21,2024-03-06
+92,Apple,Produce,No Frills,18.69,20,2024-04-26
+93,Bread,Produce,No Frills,8.15,7.68,2024-09-12
+94,Soda,Household Items,No Frills,15.43,14.29,2024-09-16
+95,Soda,Snacks,Galleria,14.36,14.73,2024-06-20
+96,Apple,Dairy,No Frills,8.72,8.79,2024-08-06
+97,Milk,Beverages,T&T,5.71,5.95,2024-03-31
+98,Milk,Dairy,Loblaws,19.06,19.48,2024-05-22
+99,Apple,Frozen Foods,Voila,16.03,14.98,2024-04-26
+100,Chicken Breast,Meat,T&T,18.91,18.32,2024-07-09
+101,Apple,Snacks,Voila,3.69,3.93,2024-05-19
+102,Bread,Dairy,T&T,4.89,4.58,2024-10-12
+103,Detergent,Household Items,No Frills,13.94,15.3,2024-10-31
+104,Detergent,Household Items,No Frills,1.89,1.85,2024-03-16
+105,Detergent,Frozen Foods,Save-On-Foods,11.84,12.95,2024-10-07
+106,Milk,Beverages,T&T,13.11,12.64,2024-04-11
+107,Detergent,Frozen Foods,Save-On-Foods,12.34,12.51,2024-04-20
+108,Chicken Breast,Produce,T&T,9.45,8.78,2024-04-10
+109,Soda,Bakery,Loblaws,12.94,14.07,2024-08-24
+110,Soda,Produce,Save-On-Foods,13.11,12.6,2024-04-03
+111,Chips,Beverages,Walmart,16.28,16.09,2024-09-12
+112,Apple,Meat,Loblaws,1.04,1.09,2024-03-08
+113,Detergent,Dairy,Loblaws,17.14,16.69,2024-03-23
+114,Chicken Breast,Meat,Save-On-Foods,6.53,6.96,2024-04-25
+115,Milk,Snacks,T&T,9.17,10.07,2024-05-25
+116,Chicken Breast,Meat,Loblaws,3.75,3.99,2024-09-18
+117,Apple,Household Items,Walmart,6.32,6.8,2024-10-28
+118,Apple,Snacks,Metro,18.84,20,2024-08-07
+119,Milk,Snacks,Walmart,17.12,17.32,2024-03-05
+120,Milk,Frozen Foods,Save-On-Foods,5.69,5.67,2024-10-25
+121,Soda,Bakery,No Frills,9.59,8.83,2024-07-03
+122,Soda,Frozen Foods,Voila,3.15,3.28,2024-04-01
+123,Frozen Pizza,Meat,Walmart,2.28,2.15,2024-08-05
+124,Chicken Breast,Snacks,Save-On-Foods,6.6,7.01,2024-05-18
+125,Apple,Household Items,No Frills,6.37,6.96,2024-09-15
+126,Chips,Snacks,T&T,18.61,17.98,2024-03-03
+127,Soda,Dairy,Metro,17.47,16.69,2024-04-04
+128,Soda,Frozen Foods,Loblaws,4.36,4.57,2024-07-12
+129,Chicken Breast,Frozen Foods,Walmart,4.07,3.7,2024-06-28
+130,Chips,Meat,Save-On-Foods,14.2,14.88,2024-09-15
+131,Chips,Frozen Foods,Walmart,10.2,10.66,2024-05-24
+132,Chicken Breast,Beverages,Voila,7.6,7.81,2024-09-11
+133,Chicken Breast,Frozen Foods,T&T,14.21,13.27,2024-09-21
+134,Milk,Household Items,No Frills,8.78,8.78,2024-08-08
+135,Frozen Pizza,Produce,Galleria,1.03,1,2024-05-06
+136,Milk,Meat,T&T,1.22,1.26,2024-05-19
+137,Milk,Meat,Save-On-Foods,13.91,14.8,2024-06-12
+138,Apple,Household Items,Metro,12,11.22,2024-03-04
+139,Detergent,Household Items,Walmart,1.64,1.65,2024-03-02
+140,Detergent,Produce,Walmart,11.77,11.12,2024-08-05
+141,Frozen Pizza,Dairy,T&T,3.81,3.45,2024-07-30
+142,Chicken Breast,Household Items,Walmart,19.55,19.01,2024-06-01
+143,Frozen Pizza,Household Items,Loblaws,8.94,9.44,2024-03-03
+144,Frozen Pizza,Dairy,Metro,17.05,15.38,2024-08-03
+145,Soda,Household Items,Walmart,18.21,18.51,2024-03-11
+146,Chips,Meat,Galleria,16.74,16.75,2024-03-07
+147,Chicken Breast,Household Items,Galleria,11.69,11.6,2024-09-20
+148,Apple,Dairy,Voila,18.53,19.67,2024-10-07
+149,Bread,Snacks,T&T,15.03,16.31,2024-06-06
+150,Detergent,Produce,T&T,12.5,12.32,2024-10-11
+151,Milk,Household Items,Voila,2.13,2.09,2024-04-15
+152,Soda,Produce,No Frills,3.06,3.19,2024-06-12
+153,Frozen Pizza,Frozen Foods,No Frills,15.26,15.69,2024-06-05
+154,Milk,Snacks,Walmart,6.12,6.24,2024-03-07
+155,Frozen Pizza,Produce,Save-On-Foods,16.36,16.32,2024-05-12
+156,Bread,Beverages,Galleria,3.45,3.59,2024-03-05
+157,Bread,Snacks,Galleria,16.26,14.74,2024-03-11
+158,Chips,Dairy,Loblaws,4.71,4.7,2024-07-02
+159,Frozen Pizza,Meat,Metro,4.54,4.96,2024-03-31
+160,Chicken Breast,Meat,Voila,14.17,14.95,2024-06-05
+161,Chips,Meat,No Frills,6.39,6.18,2024-07-12
+162,Soda,Household Items,Loblaws,13.84,14.81,2024-06-15
+163,Milk,Snacks,Metro,19.18,20,2024-06-10
+164,Chicken Breast,Household Items,Save-On-Foods,14.27,13.43,2024-04-10
+165,Milk,Beverages,Galleria,7.03,7.56,2024-02-29
+166,Apple,Produce,Metro,11.57,12.41,2024-03-02
+167,Chips,Snacks,Loblaws,3.87,3.93,2024-08-27
+168,Milk,Bakery,Metro,11.54,11.67,2024-10-03
+169,Milk,Meat,No Frills,3.55,3.28,2024-07-21
+170,Chips,Household Items,Save-On-Foods,10.91,11.4,2024-09-26
+171,Soda,Meat,T&T,11.6,11.82,2024-06-27
+172,Milk,Bakery,T&T,5.09,4.94,2024-07-31
+173,Milk,Snacks,T&T,6.94,6.95,2024-06-20
+174,Detergent,Snacks,T&T,14.63,13.98,2024-05-17
+175,Frozen Pizza,Dairy,Save-On-Foods,17.54,17.97,2024-04-03
+176,Chips,Meat,Galleria,5.2,5.57,2024-09-27
+177,Detergent,Beverages,Voila,8.96,9.64,2024-10-15
+178,Apple,Bakery,Galleria,3.74,3.97,2024-03-17
+179,Detergent,Snacks,T&T,6.79,6.22,2024-07-18
+180,Chicken Breast,Produce,T&T,11.35,11.75,2024-04-04
+181,Detergent,Dairy,Voila,14.27,14.17,2024-03-20
+182,Frozen Pizza,Meat,Walmart,12.77,12.93,2024-06-23
+183,Detergent,Produce,Save-On-Foods,2.68,2.47,2024-06-14
+184,Soda,Frozen Foods,Metro,7.13,7.4,2024-03-29
+185,Milk,Meat,T&T,12.34,13.16,2024-10-13
+186,Bread,Beverages,No Frills,19.08,19.39,2024-09-24
+187,Frozen Pizza,Snacks,Save-On-Foods,19.3,20,2024-03-04
+188,Chicken Breast,Frozen Foods,Galleria,2.09,1.91,2024-08-16
+189,Apple,Frozen Foods,Metro,17.39,18.16,2024-08-18
+190,Chips,Snacks,Voila,16.97,15.57,2024-09-06
+191,Apple,Frozen Foods,Metro,5.38,5.59,2024-05-01
+192,Frozen Pizza,Dairy,Voila,12.39,11.98,2024-10-18
+193,Milk,Bakery,T&T,5.81,5.34,2024-04-16
+194,Chips,Bakery,Loblaws,4.38,3.96,2024-03-16
+195,Milk,Bakery,T&T,7.41,7.58,2024-07-26
+196,Bread,Bakery,Galleria,2.14,2.3,2024-08-12
+197,Detergent,Snacks,Walmart,11.13,10.5,2024-08-15
+198,Soda,Produce,Metro,14.16,14.69,2024-07-09
+199,Soda,Meat,Walmart,4,3.8,2024-03-31
+200,Chicken Breast,Bakery,Walmart,18.32,19.87,2024-10-31
+201,Detergent,Frozen Foods,Voila,2.35,2.13,2024-05-28
+202,Chicken Breast,Bakery,Save-On-Foods,16.52,17.21,2024-09-19
+203,Chips,Bakery,Save-On-Foods,12.04,12.04,2024-10-03
+204,Bread,Beverages,Galleria,3.11,3.16,2024-03-09
+205,Apple,Dairy,Metro,10.11,10.98,2024-09-26
+206,Soda,Snacks,Galleria,4.57,4.24,2024-09-02
+207,Milk,Household Items,Voila,19.5,20,2024-06-04
+208,Bread,Frozen Foods,Metro,4.28,4.65,2024-08-18
+209,Milk,Frozen Foods,Galleria,4.82,4.38,2024-06-17
+210,Soda,Bakery,Metro,11.83,12.9,2024-05-22
+211,Soda,Beverages,Voila,16.63,17.31,2024-06-28
+212,Bread,Beverages,Metro,18.23,19.35,2024-10-29
+213,Chips,Bakery,Voila,14.88,15.15,2024-09-07
+214,Apple,Dairy,Save-On-Foods,16.68,16.34,2024-04-15
+215,Apple,Beverages,Save-On-Foods,14.3,14.07,2024-10-02
+216,Chips,Bakery,No Frills,8.63,9.09,2024-09-07
+217,Detergent,Frozen Foods,Walmart,12.51,11.75,2024-03-15
+218,Detergent,Meat,Voila,12.94,12.57,2024-05-26
+219,Chips,Meat,Metro,15.36,16.04,2024-10-10
+220,Chips,Meat,Save-On-Foods,13.32,14.64,2024-10-11
+221,Detergent,Snacks,T&T,17.93,19.15,2024-04-16
+222,Chicken Breast,Meat,No Frills,7.32,7.65,2024-04-22
+223,Apple,Bakery,Voila,7.24,7.2,2024-10-30
+224,Chips,Bakery,Save-On-Foods,7.11,6.59,2024-03-08
+225,Detergent,Dairy,T&T,6.98,6.61,2024-07-24
+226,Chips,Frozen Foods,Metro,9.12,9.93,2024-10-28
+227,Frozen Pizza,Snacks,Loblaws,3.86,4.12,2024-04-10
+228,Detergent,Household Items,Metro,14.46,13.88,2024-06-14
+229,Milk,Bakery,Loblaws,10.19,11.05,2024-04-28
+230,Chips,Snacks,T&T,2.42,2.41,2024-07-13
+231,Milk,Frozen Foods,Walmart,5.61,5.12,2024-03-20
+232,Apple,Frozen Foods,Galleria,19.37,20,2024-10-10
+233,Apple,Beverages,No Frills,15.39,14.42,2024-10-27
+234,Chicken Breast,Produce,Voila,16.85,17.65,2024-03-15
+235,Apple,Household Items,Walmart,17.41,16.96,2024-07-15
+236,Apple,Beverages,T&T,1.94,2.04,2024-09-23
+237,Detergent,Bakery,Walmart,5.85,6.24,2024-07-25
+238,Soda,Snacks,Galleria,13.16,12.55,2024-05-18
+239,Apple,Meat,No Frills,15.06,13.67,2024-10-16
+240,Chips,Beverages,Voila,1.65,1.49,2024-10-23
+241,Bread,Meat,Save-On-Foods,8.84,9.56,2024-09-07
+242,Milk,Bakery,Loblaws,1.33,1.46,2024-03-13
+243,Bread,Snacks,No Frills,13.23,11.96,2024-08-27
+244,Soda,Household Items,T&T,13.05,12.83,2024-09-21
+245,Bread,Frozen Foods,Save-On-Foods,14.39,13.97,2024-07-30
+246,Soda,Bakery,Galleria,15.53,15.89,2024-10-06
+247,Milk,Frozen Foods,T&T,13.56,14.01,2024-04-25
+248,Chicken Breast,Dairy,T&T,11.2,10.51,2024-06-05
+249,Soda,Dairy,Loblaws,16.49,17.77,2024-10-29
+250,Chicken Breast,Snacks,Metro,19.52,17.97,2024-10-10
+251,Detergent,Produce,Save-On-Foods,18.04,16.65,2024-02-28
+252,Apple,Household Items,Metro,10.89,10.09,2024-03-26
+253,Apple,Beverages,Galleria,19.72,20,2024-06-25
+254,Bread,Bakery,Loblaws,15.99,16.19,2024-08-21
+255,Bread,Snacks,Loblaws,19.13,17.69,2024-05-14
+256,Detergent,Beverages,Galleria,19.98,19.72,2024-08-23
+257,Chicken Breast,Beverages,Save-On-Foods,7.04,6.63,2024-10-26
+258,Apple,Produce,T&T,17.11,17.91,2024-08-01
+259,Detergent,Frozen Foods,Save-On-Foods,6.4,6.93,2024-10-21
+260,Bread,Dairy,Loblaws,1.96,2.13,2024-03-27
+261,Apple,Frozen Foods,T&T,3.96,4.01,2024-10-22
+262,Milk,Dairy,Loblaws,7.56,7.01,2024-09-12
+263,Frozen Pizza,Snacks,T&T,14.95,16.28,2024-10-01
+264,Chicken Breast,Household Items,T&T,7.64,8.05,2024-05-15
+265,Frozen Pizza,Frozen Foods,Save-On-Foods,19.71,17.88,2024-05-09
+266,Frozen Pizza,Frozen Foods,Loblaws,2.14,2.13,2024-05-07
+267,Apple,Dairy,Metro,9.17,9.25,2024-09-20
+268,Frozen Pizza,Snacks,Walmart,14.26,15.25,2024-02-28
+269,Chicken Breast,Dairy,Loblaws,18.34,17.44,2024-08-26
+270,Frozen Pizza,Produce,Metro,8.97,9.27,2024-05-25
+271,Detergent,Dairy,Galleria,3.01,2.86,2024-10-25
+272,Bread,Frozen Foods,Galleria,8.06,8.53,2024-05-08
+273,Soda,Meat,Voila,10.85,11.84,2024-05-01
+274,Bread,Snacks,Voila,13,14.26,2024-06-07
+275,Bread,Meat,Save-On-Foods,1.52,1.5,2024-10-22
+276,Frozen Pizza,Meat,T&T,9.11,9.63,2024-06-29
+277,Chips,Meat,Galleria,13.2,14.1,2024-06-27
+278,Apple,Produce,T&T,9.57,10.16,2024-08-20
+279,Milk,Beverages,Walmart,6.56,6.22,2024-08-26
+280,Milk,Produce,Galleria,16.91,17.84,2024-05-09
+281,Frozen Pizza,Snacks,Save-On-Foods,9.69,10.16,2024-08-06
+282,Apple,Beverages,Save-On-Foods,3.67,3.54,2024-05-08
+283,Milk,Dairy,Galleria,1.89,1.92,2024-06-09
+284,Chicken Breast,Produce,Voila,4,4.4,2024-04-27
+285,Detergent,Meat,Loblaws,18.18,18.04,2024-09-06
+286,Milk,Frozen Foods,No Frills,11.03,11.18,2024-06-04
+287,Apple,Produce,Save-On-Foods,16.67,15.42,2024-05-06
+288,Soda,Meat,Voila,3.01,2.81,2024-07-15
+289,Milk,Frozen Foods,Voila,19.03,19.79,2024-10-07
+290,Detergent,Bakery,T&T,4.79,5.08,2024-08-19
+291,Bread,Frozen Foods,Voila,2.52,2.46,2024-09-13
+292,Frozen Pizza,Dairy,No Frills,18.97,19.48,2024-07-27
+293,Milk,Bakery,Metro,13.4,12.86,2024-10-02
+294,Apple,Dairy,Save-On-Foods,8.06,8.58,2024-04-07
+295,Apple,Frozen Foods,Voila,14.56,14.31,2024-05-18
+296,Chips,Household Items,Loblaws,12.52,12.38,2024-09-10
+297,Apple,Bakery,Save-On-Foods,1.31,1.23,2024-10-22
+298,Detergent,Produce,Galleria,5.3,5.29,2024-06-22
+299,Bread,Household Items,Save-On-Foods,11.72,10.96,2024-05-07
+300,Bread,Frozen Foods,Loblaws,8.97,9.16,2024-06-28
+301,Chicken Breast,Household Items,Voila,4.32,4.27,2024-08-01
+302,Frozen Pizza,Meat,Galleria,18.61,19.34,2024-03-12
+303,Milk,Household Items,Voila,18.91,18.6,2024-05-05
+304,Bread,Frozen Foods,Metro,17.71,16.59,2024-07-10
+305,Detergent,Frozen Foods,Metro,18.07,18.73,2024-07-05
+306,Milk,Bakery,Walmart,2.29,2.35,2024-07-08
+307,Chips,Bakery,Save-On-Foods,17.35,17.72,2024-07-27
+308,Chips,Frozen Foods,Save-On-Foods,17.34,16.9,2024-06-24
+309,Bread,Beverages,Walmart,1.54,1.53,2024-10-06
+310,Apple,Beverages,Galleria,5.73,5.75,2024-09-12
+311,Soda,Household Items,Loblaws,4.43,4.22,2024-04-21
+312,Bread,Snacks,Voila,2.1,2.08,2024-05-11
+313,Milk,Dairy,No Frills,9.39,9.98,2024-08-12
+314,Chips,Meat,T&T,8.44,8.38,2024-05-02
+315,Detergent,Produce,No Frills,13.61,13.51,2024-07-11
+316,Milk,Snacks,Voila,15.7,14.13,2024-06-28
+317,Soda,Household Items,Walmart,13.79,12.66,2024-03-15
+318,Detergent,Household Items,Voila,15.98,14.67,2024-08-14
+319,Chips,Dairy,T&T,3.33,3.62,2024-07-25
+320,Frozen Pizza,Bakery,Metro,5.44,5.41,2024-04-21
+321,Soda,Produce,Save-On-Foods,7.47,7.78,2024-02-29
+322,Frozen Pizza,Dairy,Loblaws,12.22,12.24,2024-03-27
+323,Detergent,Dairy,T&T,10.44,10.39,2024-04-16
+324,Apple,Snacks,Metro,10.96,10.34,2024-11-01
+325,Milk,Produce,Galleria,8.18,8.72,2024-03-05
+326,Soda,Snacks,Save-On-Foods,14.51,14.16,2024-05-04
+327,Soda,Snacks,Walmart,10.13,9.66,2024-03-14
+328,Frozen Pizza,Beverages,Galleria,11.77,11.81,2024-10-27
+329,Bread,Bakery,Walmart,19.99,18.69,2024-10-09
+330,Chips,Bakery,No Frills,18.05,18.86,2024-04-02
+331,Frozen Pizza,Household Items,Galleria,17.45,17.74,2024-09-30
+332,Soda,Dairy,Voila,19.58,20,2024-03-17
+333,Apple,Meat,Walmart,12.75,13.21,2024-05-21
+334,Chicken Breast,Frozen Foods,Voila,2.44,2.28,2024-09-24
+335,Chips,Dairy,Galleria,18.89,19.8,2024-04-29
+336,Soda,Beverages,Save-On-Foods,1.7,1.87,2024-10-14
+337,Frozen Pizza,Bakery,Save-On-Foods,1.98,1.84,2024-10-06
+338,Apple,Produce,Save-On-Foods,4.26,4.37,2024-07-02
+339,Chicken Breast,Household Items,Loblaws,10.8,11.49,2024-06-18
+340,Soda,Bakery,No Frills,19.65,20,2024-08-18
+341,Milk,Beverages,Save-On-Foods,11.14,11.45,2024-03-20
+342,Chips,Beverages,No Frills,11.5,11.61,2024-03-31
+343,Bread,Bakery,Walmart,3.74,3.68,2024-07-25
+344,Frozen Pizza,Beverages,Walmart,19.24,19.88,2024-04-20
+345,Frozen Pizza,Household Items,Voila,10.04,10.25,2024-09-11
+346,Frozen Pizza,Frozen Foods,Galleria,3.13,3.08,2024-10-21
+347,Apple,Bakery,Loblaws,3.39,3.69,2024-10-27
+348,Chicken Breast,Frozen Foods,Voila,18.64,17.77,2024-10-13
+349,Detergent,Household Items,Walmart,18.03,18.54,2024-04-17
+350,Soda,Frozen Foods,Galleria,13.61,13.12,2024-06-15
+351,Detergent,Beverages,Loblaws,4.47,4.18,2024-03-02
+352,Frozen Pizza,Frozen Foods,Save-On-Foods,6.43,6.7,2024-05-21
+353,Frozen Pizza,Bakery,No Frills,18.44,19.29,2024-05-13
+354,Frozen Pizza,Frozen Foods,Voila,11.79,11.09,2024-03-18
+355,Chicken Breast,Dairy,Voila,14.4,13.79,2024-03-03
+356,Chips,Beverages,Loblaws,12.56,12.75,2024-06-26
+357,Detergent,Household Items,T&T,16.72,16.44,2024-03-30
+358,Chips,Household Items,Save-On-Foods,18.6,17.51,2024-09-03
+359,Chicken Breast,Beverages,Voila,12.01,13.19,2024-08-13
+360,Bread,Meat,Walmart,11.5,11.17,2024-10-24
+361,Detergent,Household Items,Loblaws,1.84,1.76,2024-08-17
+362,Soda,Produce,No Frills,10.46,9.43,2024-08-05
+363,Frozen Pizza,Meat,Walmart,19.78,20,2024-06-30
+364,Soda,Household Items,Metro,16.89,16.36,2024-07-28
+365,Apple,Produce,No Frills,8.33,7.7,2024-10-24
+366,Chips,Household Items,Metro,10.25,9.46,2024-04-23
+367,Apple,Bakery,T&T,6.7,7.29,2024-07-05
+368,Chips,Meat,Save-On-Foods,6.61,6.98,2024-03-06
+369,Apple,Frozen Foods,Metro,12.09,12.87,2024-04-29
+370,Bread,Household Items,Save-On-Foods,12.84,12.9,2024-03-28
+371,Apple,Bakery,Voila,9.68,9.52,2024-10-27
+372,Bread,Dairy,T&T,3.88,4.1,2024-08-01
+373,Apple,Dairy,Galleria,15.77,16.15,2024-08-11
+374,Chicken Breast,Household Items,Voila,5.71,5.41,2024-05-29
+375,Milk,Dairy,Walmart,4.8,4.68,2024-09-12
+376,Chips,Meat,No Frills,10.12,9.42,2024-07-31
+377,Detergent,Bakery,Galleria,1.31,1.39,2024-10-18
+378,Chips,Meat,Save-On-Foods,9.19,9.05,2024-03-21
+379,Milk,Frozen Foods,No Frills,18.99,20,2024-04-20
+380,Bread,Beverages,No Frills,8.96,8.07,2024-07-27
+381,Bread,Meat,T&T,16.34,16.22,2024-09-28
+382,Chips,Beverages,Voila,8.26,7.6,2024-05-09
+383,Apple,Household Items,Galleria,9.51,10.36,2024-10-13
+384,Apple,Produce,Save-On-Foods,12.8,13.78,2024-08-23
+385,Apple,Produce,No Frills,9.28,8.73,2024-09-05
+386,Chips,Dairy,Walmart,18,16.41,2024-06-22
+387,Milk,Meat,Walmart,17.52,16.62,2024-09-26
+388,Milk,Produce,Walmart,13.71,13.52,2024-04-10
+389,Bread,Produce,Walmart,19.68,18.93,2024-04-25
+390,Chips,Dairy,No Frills,2.36,2.37,2024-08-24
+391,Milk,Snacks,Walmart,5.84,5.83,2024-05-08
+392,Frozen Pizza,Snacks,Walmart,18.27,16.62,2024-07-14
+393,Apple,Dairy,Save-On-Foods,8.39,7.62,2024-03-11
+394,Milk,Beverages,Voila,12.95,12.61,2024-10-11
+395,Detergent,Bakery,No Frills,3.98,3.7,2024-07-08
+396,Detergent,Dairy,Loblaws,7.75,7.74,2024-07-10
+397,Frozen Pizza,Beverages,Galleria,18.73,19.1,2024-07-02
+398,Detergent,Beverages,Metro,12.87,12.41,2024-07-13
+399,Apple,Snacks,Metro,7.74,7.4,2024-05-30
+400,Apple,Household Items,Voila,11.67,11.29,2024-10-11
+401,Bread,Snacks,Galleria,10.62,11.38,2024-03-19
+402,Chicken Breast,Beverages,Save-On-Foods,8.6,8.53,2024-08-21
+403,Frozen Pizza,Snacks,Loblaws,7.65,7.56,2024-04-24
+404,Apple,Bakery,Galleria,19,18.09,2024-05-28
+405,Chicken Breast,Frozen Foods,Save-On-Foods,16.49,15.13,2024-06-02
+406,Soda,Household Items,Save-On-Foods,7.99,7.67,2024-03-18
+407,Milk,Meat,T&T,18.82,17.47,2024-07-31
+408,Milk,Frozen Foods,Walmart,16.45,15.41,2024-10-07
+409,Frozen Pizza,Frozen Foods,T&T,5.13,5.06,2024-10-28
+410,Chicken Breast,Bakery,Metro,5.1,5.23,2024-06-09
+411,Detergent,Beverages,No Frills,17.07,17.08,2024-09-28
+412,Chips,Beverages,Voila,14.23,15.53,2024-08-22
+413,Apple,Dairy,Voila,3.79,3.5,2024-05-08
+414,Milk,Produce,Galleria,16.39,17.57,2024-05-19
+415,Milk,Snacks,Voila,12.35,12.58,2024-05-02
+416,Detergent,Frozen Foods,Metro,4.65,4.74,2024-06-21
+417,Soda,Dairy,Voila,2.74,2.83,2024-09-14
+418,Chips,Bakery,No Frills,6.58,6.87,2024-05-17
+419,Soda,Beverages,Save-On-Foods,8.99,8.28,2024-06-27
+420,Apple,Produce,T&T,3.91,3.7,2024-05-03
+421,Frozen Pizza,Household Items,T&T,16.85,17.93,2024-04-24
+422,Milk,Produce,Walmart,8.9,9.47,2024-10-22
+423,Chicken Breast,Produce,No Frills,13.91,14.86,2024-03-23
+424,Soda,Meat,Save-On-Foods,12.43,13.45,2024-09-07
+425,Soda,Household Items,Save-On-Foods,9.28,9.07,2024-07-05
+426,Soda,Dairy,Walmart,11.24,10.89,2024-07-17
+427,Bread,Produce,Save-On-Foods,4.63,4.25,2024-03-13
+428,Apple,Snacks,Save-On-Foods,6.3,6.6,2024-03-10
+429,Frozen Pizza,Produce,Voila,7.43,7.86,2024-04-05
+430,Frozen Pizza,Frozen Foods,Loblaws,4.01,3.73,2024-10-13
+431,Frozen Pizza,Household Items,Walmart,14.75,13.92,2024-05-15
+432,Chips,Meat,T&T,19.76,20,2024-05-31
+433,Soda,Beverages,No Frills,17.15,17.98,2024-09-09
+434,Soda,Frozen Foods,Save-On-Foods,18.77,17.17,2024-05-02
+435,Chips,Meat,No Frills,3.46,3.75,2024-09-05
+436,Soda,Produce,Save-On-Foods,13.91,15.09,2024-04-24
+437,Frozen Pizza,Produce,T&T,3.32,3.49,2024-07-29
+438,Chicken Breast,Bakery,T&T,5.93,6.16,2024-10-25
+439,Soda,Produce,Voila,7.35,6.79,2024-09-12
+440,Chicken Breast,Produce,Metro,12.27,12.96,2024-09-27
+441,Detergent,Household Items,Loblaws,1.66,1.68,2024-03-09
+442,Bread,Household Items,No Frills,15.38,15.49,2024-04-24
+443,Frozen Pizza,Frozen Foods,Metro,2.36,2.32,2024-04-29
+444,Frozen Pizza,Meat,Metro,6.38,6.35,2024-10-18
+445,Bread,Produce,Galleria,2.77,2.68,2024-06-04
+446,Detergent,Frozen Foods,Galleria,11.86,11.55,2024-10-18
+447,Chicken Breast,Beverages,T&T,14.14,14.25,2024-05-23
+448,Bread,Meat,Metro,1.33,1.42,2024-10-25
+449,Soda,Snacks,Galleria,6.9,6.64,2024-03-04
+450,Milk,Snacks,Galleria,6.1,5.74,2024-10-23
+451,Milk,Frozen Foods,Walmart,19.07,18.52,2024-04-27
+452,Chips,Dairy,Voila,16.57,17.22,2024-06-01
+453,Frozen Pizza,Bakery,T&T,19.41,19.3,2024-06-19
+454,Frozen Pizza,Household Items,Walmart,13.22,12.43,2024-10-15
+455,Frozen Pizza,Produce,Metro,11.15,12.1,2024-06-06
+456,Chicken Breast,Meat,T&T,9.48,9.86,2024-08-26
+457,Frozen Pizza,Beverages,Metro,9.26,9.75,2024-06-02
+458,Detergent,Bakery,Save-On-Foods,9.45,9.36,2024-06-21
+459,Milk,Household Items,Save-On-Foods,1.18,1.19,2024-04-02
+460,Apple,Bakery,Save-On-Foods,2.74,2.86,2024-07-24
+461,Bread,Household Items,Voila,18.38,16.61,2024-09-21
+462,Chicken Breast,Household Items,No Frills,11.08,10.02,2024-09-04
+463,Chicken Breast,Produce,No Frills,5.5,5.11,2024-05-05
+464,Soda,Beverages,Voila,12.07,11.28,2024-08-27
+465,Soda,Dairy,No Frills,4.37,4.76,2024-06-24
+466,Frozen Pizza,Produce,Walmart,15.04,13.75,2024-08-03
+467,Chicken Breast,Produce,Loblaws,4.45,4.27,2024-09-11
+468,Frozen Pizza,Beverages,Galleria,11.48,11.99,2024-07-10
+469,Bread,Produce,Save-On-Foods,11.67,10.85,2024-06-18
+470,Milk,Bakery,Metro,18.82,20,2024-08-20
+471,Soda,Dairy,Voila,7.26,7.64,2024-03-01
+472,Chips,Beverages,Metro,7.97,7.74,2024-10-02
+473,Soda,Meat,Save-On-Foods,9.07,9.9,2024-04-07
+474,Bread,Snacks,No Frills,11.9,10.75,2024-10-21
+475,Frozen Pizza,Frozen Foods,T&T,3.8,4.03,2024-06-26
+476,Bread,Bakery,Walmart,8.26,8.17,2024-10-19
+477,Bread,Meat,Voila,13.9,14.65,2024-10-29
+478,Chicken Breast,Household Items,Loblaws,1.9,1.75,2024-08-09
+479,Frozen Pizza,Beverages,Walmart,1.21,1.3,2024-09-07
+480,Soda,Snacks,Metro,11.65,10.59,2024-06-29
+481,Milk,Meat,No Frills,8.28,8.19,2024-07-15
+482,Bread,Meat,Voila,9.49,9.95,2024-03-15
+483,Chips,Household Items,Galleria,2.68,2.73,2024-05-03
+484,Detergent,Frozen Foods,Metro,7.17,7.13,2024-09-27
+485,Soda,Produce,T&T,5.82,6.31,2024-09-04
+486,Milk,Beverages,T&T,13.56,14.8,2024-03-18
+487,Chicken Breast,Meat,T&T,14.53,15.17,2024-06-22
+488,Soda,Frozen Foods,Save-On-Foods,9.61,9.37,2024-06-26
+489,Chips,Dairy,Save-On-Foods,1.69,1.79,2024-04-26
+490,Milk,Frozen Foods,Save-On-Foods,18.5,18.52,2024-05-26
+491,Frozen Pizza,Snacks,Metro,16.13,14.58,2024-06-13
+492,Soda,Beverages,Galleria,11.55,10.64,2024-08-05
+493,Detergent,Frozen Foods,T&T,9.42,10.19,2024-08-19
+494,Chips,Household Items,T&T,13.88,13.23,2024-05-17
+495,Soda,Dairy,Save-On-Foods,4.74,4.96,2024-06-06
+496,Detergent,Snacks,Loblaws,11.76,11.49,2024-08-16
+497,Detergent,Bakery,Galleria,17.04,16.28,2024-06-02
+498,Apple,Meat,Galleria,10.45,11.28,2024-09-08
+499,Bread,Bakery,Voila,15.94,15.35,2024-10-05
+500,Apple,Frozen Foods,Metro,5.76,5.43,2024-06-20
+501,Chips,Household Items,Loblaws,17.92,19.61,2024-08-21
+502,Milk,Produce,Galleria,2.04,2.19,2024-04-27
+503,Milk,Household Items,Voila,16.15,16.88,2024-06-22
+504,Bread,Meat,Voila,14.17,14.66,2024-07-21
+505,Chicken Breast,Snacks,T&T,17.57,16.06,2024-08-07
+506,Milk,Frozen Foods,Walmart,18.64,17.63,2024-03-27
+507,Detergent,Bakery,Walmart,16.63,16.13,2024-08-06
+508,Bread,Snacks,Galleria,13.79,13.95,2024-04-13
+509,Soda,Household Items,Walmart,13.95,14.93,2024-09-06
+510,Bread,Bakery,Walmart,1.23,1.12,2024-05-06
+511,Chips,Snacks,Galleria,18.09,17.19,2024-10-05
+512,Apple,Dairy,Galleria,16.59,16.79,2024-08-04
+513,Chicken Breast,Bakery,Metro,2.93,2.82,2024-09-26
+514,Soda,Meat,Galleria,1.01,1.1,2024-06-11
+515,Frozen Pizza,Beverages,No Frills,13.83,13.55,2024-09-18
+516,Apple,Bakery,Voila,19.27,18.67,2024-07-21
+517,Detergent,Produce,No Frills,14.01,14.65,2024-08-18
+518,Apple,Household Items,Metro,4.57,4.36,2024-05-27
+519,Bread,Produce,Walmart,5.9,6.06,2024-09-27
+520,Frozen Pizza,Bakery,Save-On-Foods,4.73,4.99,2024-10-10
+521,Soda,Meat,Metro,7.47,6.8,2024-07-26
+522,Chips,Produce,Galleria,4.32,4.7,2024-07-05
+523,Bread,Snacks,No Frills,18.82,18.68,2024-04-30
+524,Apple,Household Items,Save-On-Foods,4.36,4,2024-10-13
+525,Bread,Bakery,Metro,3.18,2.95,2024-08-09
+526,Milk,Meat,Save-On-Foods,2.64,2.72,2024-10-07
+527,Detergent,Produce,No Frills,16.62,17.72,2024-10-03
+528,Milk,Beverages,Loblaws,12.78,13.36,2024-09-10
+529,Milk,Produce,T&T,3.03,3.26,2024-03-23
+530,Chips,Bakery,T&T,10.75,10.6,2024-07-04
+531,Milk,Snacks,Save-On-Foods,18.6,18.35,2024-03-28
+532,Soda,Bakery,No Frills,15.55,15.43,2024-06-26
+533,Apple,Dairy,Voila,16.89,16.77,2024-07-01
+534,Frozen Pizza,Dairy,Voila,19.18,18.42,2024-03-01
+535,Milk,Bakery,Walmart,2.93,2.88,2024-05-27
+536,Milk,Snacks,Walmart,1.52,1.44,2024-06-28
+537,Milk,Beverages,Voila,10.8,11.3,2024-09-10
+538,Chips,Dairy,No Frills,11.83,12.18,2024-05-28
+539,Detergent,Dairy,Metro,1.16,1.13,2024-06-22
+540,Chips,Frozen Foods,Save-On-Foods,16.76,16.52,2024-04-14
+541,Soda,Meat,Loblaws,6.91,6.43,2024-08-04
+542,Milk,Produce,Loblaws,19.49,19.54,2024-06-01
+543,Bread,Beverages,No Frills,4.49,4.5,2024-08-19
+544,Frozen Pizza,Meat,Save-On-Foods,18.16,17.74,2024-05-15
+545,Chicken Breast,Bakery,Galleria,15.06,14.15,2024-05-23
+546,Milk,Bakery,Galleria,18.63,16.86,2024-05-22
+547,Soda,Household Items,Metro,10.13,10.14,2024-03-19
+548,Chips,Bakery,Walmart,8.9,8.96,2024-04-17
+549,Chips,Snacks,Loblaws,4.72,5.15,2024-07-11
+550,Soda,Produce,T&T,16.96,16.85,2024-10-16
+551,Bread,Beverages,Galleria,12.89,11.98,2024-09-29
+552,Milk,Dairy,Voila,5.94,5.75,2024-08-18
+553,Frozen Pizza,Bakery,Walmart,19.6,17.97,2024-04-28
+554,Detergent,Snacks,Metro,13.15,14.16,2024-08-25
+555,Detergent,Produce,Voila,13.16,12.3,2024-03-21
+556,Milk,Household Items,Loblaws,8.97,8.46,2024-09-21
+557,Soda,Meat,Metro,1.5,1.39,2024-05-30
+558,Frozen Pizza,Beverages,T&T,18.84,18.66,2024-05-16
+559,Apple,Bakery,Walmart,9.93,10.23,2024-03-13
+560,Frozen Pizza,Frozen Foods,Galleria,7.69,7.33,2024-05-18
+561,Chips,Frozen Foods,Metro,6.96,6.38,2024-04-26
+562,Soda,Household Items,No Frills,16.02,16.71,2024-07-31
+563,Apple,Bakery,Metro,8.58,8.55,2024-08-22
+564,Chips,Dairy,Walmart,18.44,18.16,2024-06-19
+565,Chips,Bakery,No Frills,7.2,7.01,2024-08-18
+566,Apple,Household Items,Loblaws,11.38,11.95,2024-05-09
+567,Chips,Beverages,No Frills,2.75,2.94,2024-06-22
+568,Detergent,Dairy,Metro,5.75,5.42,2024-03-18
+569,Chicken Breast,Dairy,Save-On-Foods,2.64,2.46,2024-10-02
+570,Chips,Produce,Voila,1.5,1.5,2024-05-10
+571,Apple,Snacks,No Frills,2.87,2.65,2024-08-08
+572,Soda,Produce,Galleria,10.53,11.25,2024-04-18
+573,Milk,Produce,No Frills,7.63,7.58,2024-05-05
+574,Detergent,Dairy,No Frills,7.52,7.46,2024-05-09
+575,Bread,Household Items,Walmart,4.69,4.38,2024-10-25
+576,Soda,Frozen Foods,Voila,11.8,10.79,2024-07-10
+577,Frozen Pizza,Meat,Save-On-Foods,15.51,14.46,2024-08-17
+578,Bread,Beverages,Galleria,18.47,19.24,2024-10-04
+579,Milk,Beverages,No Frills,17.62,18.56,2024-03-15
+580,Chicken Breast,Meat,Loblaws,3.37,3.3,2024-04-27
+581,Bread,Snacks,Walmart,7.16,7.09,2024-10-06
+582,Chips,Household Items,Loblaws,5.33,5,2024-08-09
+583,Chicken Breast,Household Items,Voila,4.38,4.39,2024-08-20
+584,Soda,Produce,T&T,16.69,18.17,2024-11-01
+585,Chips,Beverages,Loblaws,16.76,15.64,2024-07-29
+586,Soda,Produce,Metro,18.78,18.58,2024-08-08
+587,Chips,Bakery,Metro,19.44,19.11,2024-09-27
+588,Apple,Household Items,Metro,2.91,3.19,2024-04-15
+589,Bread,Bakery,T&T,3.49,3.82,2024-07-09
+590,Frozen Pizza,Household Items,Save-On-Foods,6.39,6.42,2024-08-26
+591,Milk,Dairy,T&T,16.64,16.35,2024-08-03
+592,Chicken Breast,Household Items,Metro,9.9,10.85,2024-06-30
+593,Chips,Frozen Foods,No Frills,7.57,7.77,2024-07-21
+594,Apple,Produce,Galleria,16,15.28,2024-10-05
+595,Frozen Pizza,Dairy,Walmart,2.22,2.21,2024-05-12
+596,Apple,Bakery,Voila,5.31,5.71,2024-08-08
+597,Bread,Beverages,Save-On-Foods,7.01,6.67,2024-10-03
+598,Chicken Breast,Produce,Voila,10.26,10.93,2024-03-20
+599,Detergent,Dairy,Galleria,4.43,4.87,2024-04-02
+600,Chips,Meat,Voila,18.2,17.6,2024-03-22
+601,Milk,Meat,No Frills,19.96,20,2024-08-03
+602,Soda,Bakery,Voila,3.44,3.57,2024-06-03
+603,Chicken Breast,Dairy,Loblaws,17.41,17.04,2024-06-22
+604,Milk,Snacks,Walmart,6.18,5.66,2024-10-05
+605,Detergent,Produce,Loblaws,12.12,11.86,2024-02-28
+606,Frozen Pizza,Produce,Save-On-Foods,12.38,11.87,2024-06-30
+607,Bread,Dairy,Galleria,7.38,6.75,2024-09-19
+608,Apple,Snacks,Walmart,13.52,13.45,2024-07-26
+609,Bread,Bakery,Metro,9.95,10.04,2024-10-02
+610,Bread,Bakery,Walmart,11.39,12.11,2024-06-13
+611,Chicken Breast,Bakery,Walmart,16.16,16.55,2024-07-18
+612,Frozen Pizza,Beverages,Walmart,7.94,8.4,2024-05-28
+613,Bread,Produce,No Frills,6.63,6.67,2024-03-03
+614,Soda,Produce,Loblaws,12.14,11.67,2024-02-29
+615,Soda,Household Items,Voila,11.29,11.79,2024-09-16
+616,Chicken Breast,Household Items,Save-On-Foods,12.08,12.12,2024-07-07
+617,Chips,Meat,T&T,11.41,11.96,2024-05-17
+618,Chips,Frozen Foods,Metro,2.24,2.42,2024-08-18
+619,Frozen Pizza,Meat,T&T,12.36,11.75,2024-08-01
+620,Bread,Beverages,No Frills,15.6,16.89,2024-04-01
+621,Soda,Beverages,Metro,7.68,8.18,2024-09-19
+622,Apple,Meat,Metro,3.78,3.7,2024-10-18
+623,Milk,Snacks,Voila,6.33,6.14,2024-09-27
+624,Chips,Dairy,Voila,11.21,11.58,2024-04-22
+625,Milk,Produce,Walmart,8.64,9.37,2024-09-06
+626,Apple,Dairy,Loblaws,14.73,16.18,2024-10-31
+627,Soda,Produce,Loblaws,17.51,17.82,2024-04-21
+628,Frozen Pizza,Snacks,Loblaws,19.16,17.79,2024-10-04
+629,Milk,Beverages,Voila,13.38,12.69,2024-09-23
+630,Chicken Breast,Household Items,Walmart,19.66,17.94,2024-06-21
+631,Milk,Meat,Galleria,7.63,8.31,2024-08-11
+632,Soda,Bakery,Save-On-Foods,13.5,12.24,2024-10-11
+633,Milk,Beverages,T&T,4.11,4.01,2024-10-26
+634,Milk,Household Items,Walmart,8.96,9.02,2024-09-11
+635,Soda,Frozen Foods,Loblaws,18.53,20,2024-04-01
+636,Milk,Beverages,Save-On-Foods,18.22,17.34,2024-06-22
+637,Soda,Produce,Walmart,12.96,12.46,2024-07-26
+638,Soda,Beverages,Walmart,12.4,11.23,2024-07-29
+639,Milk,Meat,Galleria,6.45,6.39,2024-04-09
+640,Apple,Bakery,Metro,6.45,6.02,2024-06-12
+641,Apple,Meat,Galleria,1.65,1.53,2024-03-12
+642,Detergent,Bakery,Metro,8.02,8.52,2024-03-16
+643,Detergent,Beverages,Voila,7.27,6.99,2024-08-27
+644,Chips,Beverages,Voila,17.16,17.11,2024-06-14
+645,Detergent,Bakery,No Frills,4.59,4.59,2024-10-05
+646,Soda,Meat,Metro,2.16,2.11,2024-04-22
+647,Chicken Breast,Dairy,No Frills,9.23,8.97,2024-06-19
+648,Chicken Breast,Produce,Metro,17.1,15.93,2024-05-26
+649,Soda,Beverages,Loblaws,9.07,8.82,2024-10-13
+650,Detergent,Household Items,Walmart,6.59,6.33,2024-05-30
+651,Soda,Meat,Walmart,9.95,9.87,2024-05-03
+652,Frozen Pizza,Household Items,T&T,6.96,6.93,2024-06-14
+653,Apple,Household Items,T&T,14.32,15.14,2024-10-25
+654,Soda,Snacks,T&T,2.73,2.9,2024-08-17
+655,Soda,Frozen Foods,Save-On-Foods,3.26,3.53,2024-05-27
+656,Detergent,Beverages,Walmart,8.99,9.56,2024-08-02
+657,Frozen Pizza,Produce,Loblaws,9.03,9.15,2024-07-12
+658,Bread,Snacks,T&T,2.28,2.49,2024-06-21
+659,Bread,Beverages,Voila,11.29,11.57,2024-06-20
+660,Detergent,Dairy,Metro,9.77,10.05,2024-07-23
+661,Detergent,Household Items,Loblaws,1.11,1.2,2024-04-02
+662,Chicken Breast,Produce,Walmart,19.08,17.61,2024-05-12
+663,Detergent,Produce,T&T,15.67,14.74,2024-08-18
+664,Soda,Household Items,Metro,8.61,8.66,2024-03-11
+665,Chicken Breast,Bakery,Voila,18.08,16.8,2024-09-22
+666,Bread,Snacks,No Frills,12.34,13.51,2024-05-26
+667,Frozen Pizza,Frozen Foods,Save-On-Foods,9.25,10.16,2024-07-20
+668,Chicken Breast,Frozen Foods,Galleria,1.38,1.51,2024-08-25
+669,Chicken Breast,Meat,Loblaws,1.29,1.29,2024-04-21
+670,Milk,Produce,T&T,10,9.59,2024-07-09
+671,Bread,Snacks,Walmart,18.57,17.9,2024-06-08
+672,Soda,Meat,Voila,2.98,2.76,2024-10-29
+673,Bread,Produce,Galleria,15.62,16.32,2024-04-04
+674,Chicken Breast,Dairy,Save-On-Foods,4.94,4.97,2024-10-27
+675,Soda,Meat,Loblaws,4.56,4.6,2024-10-22
+676,Soda,Produce,Galleria,9.87,10.47,2024-08-07
+677,Milk,Dairy,Loblaws,1.39,1.42,2024-03-29
+678,Milk,Snacks,Voila,16.9,18.47,2024-10-05
+679,Frozen Pizza,Bakery,No Frills,6.75,6.82,2024-03-16
+680,Chicken Breast,Dairy,Walmart,12.45,11.29,2024-03-19
+681,Apple,Dairy,No Frills,3.18,3.43,2024-05-17
+682,Apple,Meat,Metro,10.78,11.55,2024-05-16
+683,Detergent,Beverages,No Frills,14.96,15.57,2024-05-06
+684,Chicken Breast,Bakery,Metro,7.24,7.67,2024-08-14
+685,Soda,Produce,No Frills,13.72,13.48,2024-08-12
+686,Milk,Beverages,Galleria,5.7,5.51,2024-07-14
+687,Soda,Snacks,Galleria,3.34,3.52,2024-03-12
+688,Detergent,Beverages,Metro,16.9,17.8,2024-07-09
+689,Chips,Beverages,Walmart,19.46,18.06,2024-08-30
+690,Milk,Dairy,No Frills,10.19,9.94,2024-07-05
+691,Chicken Breast,Bakery,Voila,17.65,18.72,2024-05-14
+692,Detergent,Bakery,Walmart,17.62,19.17,2024-07-17
+693,Apple,Produce,Loblaws,7.59,7.34,2024-07-06
+694,Chips,Beverages,Voila,15.96,15.03,2024-05-25
+695,Chicken Breast,Frozen Foods,No Frills,6.73,6.16,2024-07-11
+696,Bread,Snacks,Voila,14.33,14.2,2024-04-06
+697,Frozen Pizza,Frozen Foods,Walmart,19.02,20,2024-04-11
+698,Chicken Breast,Beverages,T&T,6.21,6.07,2024-06-10
+699,Frozen Pizza,Frozen Foods,Metro,13.71,12.45,2024-04-16
+700,Frozen Pizza,Frozen Foods,Metro,5.8,6.05,2024-03-01
+701,Chicken Breast,Bakery,No Frills,9.01,8.9,2024-09-02
+702,Detergent,Produce,Save-On-Foods,13.16,13.75,2024-04-20
+703,Apple,Beverages,Metro,10.34,9.47,2024-08-10
+704,Apple,Bakery,Loblaws,15.85,16.92,2024-05-20
+705,Milk,Produce,T&T,6.65,6.57,2024-04-19
+706,Apple,Produce,Loblaws,10.94,10.4,2024-09-09
+707,Chicken Breast,Dairy,T&T,18.83,19.33,2024-07-14
+708,Chips,Produce,Loblaws,19.62,20,2024-10-11
+709,Chips,Frozen Foods,Galleria,14.23,14.17,2024-10-17
+710,Frozen Pizza,Dairy,Metro,18.24,16.82,2024-09-07
+711,Detergent,Beverages,Galleria,7.31,7.76,2024-06-07
+712,Frozen Pizza,Beverages,Walmart,4.33,4.36,2024-05-06
+713,Chicken Breast,Snacks,Metro,19.6,18.48,2024-09-23
+714,Chips,Dairy,Save-On-Foods,17.44,18.31,2024-05-15
+715,Chicken Breast,Household Items,Loblaws,5.85,6.33,2024-08-21
+716,Detergent,Dairy,Metro,3.23,3.49,2024-07-24
+717,Chicken Breast,Bakery,Loblaws,19.26,19.39,2024-10-27
+718,Chips,Dairy,Loblaws,6.23,6.13,2024-07-29
+719,Soda,Produce,Metro,19.59,18.69,2024-05-28
+720,Frozen Pizza,Frozen Foods,Voila,2.74,2.64,2024-03-01
+721,Apple,Snacks,Loblaws,1.81,1.69,2024-05-09
+722,Frozen Pizza,Dairy,Metro,12.98,13.34,2024-04-13
+723,Bread,Beverages,T&T,16.26,17.53,2024-07-10
+724,Detergent,Snacks,T&T,1.83,2,2024-04-27
+725,Milk,Produce,Loblaws,14.66,13.7,2024-10-04
+726,Bread,Snacks,Metro,12.26,11.66,2024-04-23
+727,Chips,Household Items,Metro,15.1,14.54,2024-06-16
+728,Detergent,Produce,Loblaws,8.01,7.45,2024-07-31
+729,Chips,Dairy,Walmart,10.88,10.54,2024-10-15
+730,Bread,Bakery,Walmart,6.17,5.97,2024-06-13
+731,Bread,Household Items,Walmart,8.35,8.41,2024-08-15
+732,Soda,Frozen Foods,T&T,12.01,11.7,2024-03-16
+733,Chicken Breast,Frozen Foods,Voila,9.63,10.15,2024-09-30
+734,Bread,Produce,Save-On-Foods,6.96,6.85,2024-07-05
+735,Milk,Snacks,Save-On-Foods,6.23,6.61,2024-05-05
+736,Frozen Pizza,Frozen Foods,Save-On-Foods,9.58,8.75,2024-07-16
+737,Detergent,Frozen Foods,Loblaws,10.34,11.02,2024-07-19
+738,Apple,Dairy,Walmart,12.7,11.72,2024-06-26
+739,Milk,Household Items,Save-On-Foods,4.68,4.53,2024-09-25
+740,Chicken Breast,Bakery,Walmart,15.55,14.89,2024-03-04
+741,Apple,Bakery,Galleria,17.99,16.75,2024-05-22
+742,Chips,Beverages,Voila,6.1,6.39,2024-09-09
+743,Chicken Breast,Beverages,Save-On-Foods,12.95,12.58,2024-04-07
+744,Chips,Frozen Foods,Galleria,16.35,15.91,2024-08-23
+745,Soda,Snacks,T&T,11.07,10.97,2024-05-27
+746,Frozen Pizza,Beverages,T&T,19.81,20,2024-09-09
+747,Chips,Dairy,Galleria,15.2,15.76,2024-07-29
+748,Soda,Dairy,Save-On-Foods,5.31,5.29,2024-07-31
+749,Apple,Dairy,Voila,16.37,17.92,2024-06-20
+750,Detergent,Bakery,Walmart,11.13,10.3,2024-06-01
+751,Soda,Beverages,Voila,14.87,15.6,2024-09-26
+752,Chicken Breast,Produce,T&T,15.41,16.13,2024-04-23
+753,Detergent,Snacks,Metro,11.73,11.68,2024-05-14
+754,Detergent,Snacks,Walmart,13.83,14.26,2024-05-03
+755,Milk,Produce,Save-On-Foods,6.27,5.79,2024-05-28
+756,Chicken Breast,Meat,Loblaws,1.52,1.49,2024-08-06
+757,Detergent,Bakery,No Frills,14.54,14.19,2024-06-10
+758,Chicken Breast,Dairy,T&T,15.82,14.69,2024-04-30
+759,Bread,Beverages,Voila,15.01,16.31,2024-10-21
+760,Soda,Beverages,Voila,12.53,12.44,2024-03-11
+761,Detergent,Frozen Foods,Save-On-Foods,2.87,3.04,2024-09-01
+762,Milk,Frozen Foods,No Frills,4.73,4.41,2024-06-26
+763,Milk,Bakery,Save-On-Foods,18.73,20,2024-10-20
+764,Bread,Bakery,Voila,5.78,6.16,2024-03-25
+765,Milk,Frozen Foods,Save-On-Foods,3.76,3.75,2024-06-27
+766,Detergent,Frozen Foods,T&T,12.02,11.45,2024-06-09
+767,Chicken Breast,Dairy,Loblaws,7.25,7.44,2024-03-09
+768,Soda,Dairy,No Frills,11.77,10.87,2024-05-25
+769,Apple,Meat,Walmart,17.33,18.31,2024-09-26
+770,Milk,Frozen Foods,No Frills,17.31,18.37,2024-06-01
+771,Frozen Pizza,Produce,No Frills,15.23,13.73,2024-07-21
+772,Soda,Snacks,Loblaws,5.77,5.75,2024-06-21
+773,Bread,Bakery,Galleria,11.8,11.15,2024-10-26
+774,Chips,Household Items,Walmart,11.51,10.53,2024-09-07
+775,Milk,Meat,Save-On-Foods,18.64,18.26,2024-08-22
+776,Apple,Household Items,Walmart,3.03,3.08,2024-08-01
+777,Milk,Produce,Walmart,14.99,14.42,2024-06-20
+778,Bread,Dairy,Loblaws,14.27,14.27,2024-09-06
+779,Frozen Pizza,Meat,Metro,16.45,15.95,2024-03-17
+780,Milk,Beverages,Voila,11.26,10.48,2024-04-06
+781,Detergent,Snacks,T&T,13.35,14.33,2024-08-23
+782,Soda,Produce,Loblaws,4.18,4.39,2024-05-13
+783,Soda,Snacks,Metro,19.12,18.39,2024-07-11
+784,Frozen Pizza,Produce,Save-On-Foods,8.23,7.83,2024-08-24
+785,Apple,Bakery,Voila,7.44,8.1,2024-07-18
+786,Apple,Bakery,Metro,5.93,6.42,2024-08-14
+787,Chicken Breast,Bakery,Save-On-Foods,2.34,2.3,2024-08-31
+788,Detergent,Snacks,Walmart,6.93,6.75,2024-03-17
+789,Apple,Dairy,Metro,15.96,17.28,2024-06-05
+790,Frozen Pizza,Household Items,Voila,4.7,4.92,2024-04-17
+791,Apple,Bakery,Save-On-Foods,6.96,7.64,2024-08-15
+792,Apple,Dairy,Metro,17.3,17.38,2024-03-17
+793,Apple,Dairy,No Frills,8.14,7.95,2024-10-20
+794,Frozen Pizza,Frozen Foods,Walmart,7.34,6.64,2024-03-18
+795,Chicken Breast,Produce,Loblaws,10.84,9.92,2024-09-16
+796,Frozen Pizza,Snacks,Walmart,19,18.06,2024-03-13
+797,Milk,Snacks,Save-On-Foods,14.98,14.77,2024-05-04
+798,Bread,Dairy,Galleria,16.34,16.37,2024-05-15
+799,Chicken Breast,Snacks,No Frills,11.62,10.88,2024-10-24
+800,Bread,Bakery,T&T,3.22,3.4,2024-06-22
+801,Milk,Meat,No Frills,1.96,1.82,2024-10-16
+802,Chicken Breast,Meat,Voila,3.78,3.51,2024-10-16
+803,Frozen Pizza,Beverages,No Frills,9.72,10.45,2024-04-27
+804,Chicken Breast,Bakery,T&T,19.32,18.21,2024-08-05
+805,Frozen Pizza,Frozen Foods,Save-On-Foods,13.09,13.58,2024-06-24
+806,Chips,Snacks,Galleria,17.2,16.05,2024-07-01
+807,Soda,Meat,Metro,5.37,5.32,2024-03-24
+808,Detergent,Household Items,Voila,13.63,13.31,2024-10-06
+809,Chicken Breast,Meat,No Frills,1.44,1.45,2024-07-27
+810,Chips,Meat,Save-On-Foods,7.69,7.59,2024-10-14
+811,Milk,Dairy,Walmart,7.54,7.72,2024-06-23
+812,Bread,Frozen Foods,Voila,8.76,8.03,2024-04-11
+813,Bread,Household Items,Walmart,7.18,7.08,2024-07-07
+814,Soda,Frozen Foods,No Frills,7.27,7.21,2024-10-21
+815,Frozen Pizza,Household Items,Metro,8.4,8.08,2024-05-15
+816,Apple,Dairy,Voila,5.68,5.79,2024-09-24
+817,Soda,Beverages,Voila,11.82,11.74,2024-05-03
+818,Apple,Dairy,Galleria,6.97,6.86,2024-06-07
+819,Chicken Breast,Beverages,Save-On-Foods,17.29,16.9,2024-08-16
+820,Chips,Produce,Voila,19,19.38,2024-05-03
+821,Soda,Meat,Save-On-Foods,5.43,5.91,2024-09-18
+822,Apple,Snacks,No Frills,12.07,10.92,2024-07-14
+823,Milk,Dairy,Galleria,1.23,1.18,2024-10-21
+824,Milk,Meat,T&T,17.11,17.51,2024-08-16
+825,Frozen Pizza,Snacks,Save-On-Foods,12.46,11.91,2024-07-24
+826,Soda,Produce,Voila,7.59,7.66,2024-04-09
+827,Milk,Snacks,Voila,15.48,14.42,2024-08-13
+828,Milk,Meat,T&T,15.26,16.29,2024-06-12
+829,Soda,Snacks,Walmart,5,5.35,2024-04-27
+830,Frozen Pizza,Produce,No Frills,18.68,18.94,2024-06-03
+831,Apple,Frozen Foods,Loblaws,15.37,15.87,2024-07-27
+832,Detergent,Bakery,Save-On-Foods,11.34,11.94,2024-06-20
+833,Detergent,Frozen Foods,T&T,15.44,13.94,2024-09-28
+834,Milk,Frozen Foods,T&T,1.33,1.31,2024-10-13
+835,Chips,Snacks,Loblaws,1.48,1.4,2024-03-06
+836,Bread,Dairy,Galleria,11.83,11.71,2024-10-05
+837,Soda,Frozen Foods,No Frills,1.65,1.67,2024-09-17
+838,Soda,Household Items,Walmart,13.95,13.19,2024-09-30
+839,Soda,Beverages,No Frills,11.3,11.5,2024-09-20
+840,Soda,Produce,Metro,12.33,12.98,2024-03-23
+841,Bread,Meat,Loblaws,17.82,18.73,2024-04-04
+842,Apple,Frozen Foods,No Frills,3.3,3.3,2024-07-12
+843,Detergent,Beverages,Metro,13.45,13.73,2024-08-07
+844,Soda,Bakery,Galleria,10.35,11.08,2024-07-07
+845,Bread,Bakery,Metro,6.04,6.37,2024-04-16
+846,Chips,Snacks,Metro,7.46,7.49,2024-07-16
+847,Soda,Bakery,No Frills,1.1,1.14,2024-07-24
+848,Detergent,Dairy,Save-On-Foods,19.81,18.49,2024-09-12
+849,Chicken Breast,Meat,No Frills,17.03,15.47,2024-05-08
+850,Milk,Dairy,Loblaws,18,18.63,2024-03-03
+851,Chicken Breast,Dairy,Save-On-Foods,14.92,13.71,2024-06-11
+852,Milk,Dairy,Walmart,13,13.53,2024-10-11
+853,Bread,Bakery,No Frills,15.66,15.11,2024-07-19
+854,Detergent,Dairy,Galleria,19.78,19.89,2024-03-23
+855,Chips,Beverages,Voila,7.55,7.21,2024-08-20
+856,Soda,Household Items,Galleria,5.23,4.97,2024-10-27
+857,Frozen Pizza,Household Items,Walmart,14.49,15.73,2024-04-02
+858,Frozen Pizza,Produce,Galleria,19.51,19.79,2024-04-10
+859,Chips,Produce,Voila,16.11,16.77,2024-06-21
+860,Chips,Produce,Loblaws,10.45,11.36,2024-07-12
+861,Chicken Breast,Dairy,Galleria,14.74,15.54,2024-06-16
+862,Milk,Frozen Foods,Voila,6.82,7.44,2024-03-07
+863,Frozen Pizza,Dairy,Save-On-Foods,13.71,13.64,2024-06-04
+864,Frozen Pizza,Dairy,Loblaws,9.34,8.58,2024-06-19
+865,Milk,Beverages,Save-On-Foods,6.16,6.32,2024-08-23
+866,Chips,Dairy,Save-On-Foods,2.19,2.08,2024-04-24
+867,Soda,Meat,Metro,5.61,5.6,2024-08-30
+868,Detergent,Beverages,No Frills,9.03,9.87,2024-08-24
+869,Chips,Frozen Foods,Walmart,6.71,6.53,2024-04-02
+870,Milk,Bakery,Save-On-Foods,5.87,5.59,2024-09-30
+871,Chips,Beverages,Loblaws,1.59,1.51,2024-06-18
+872,Detergent,Bakery,Metro,2.39,2.28,2024-06-16
+873,Milk,Bakery,Galleria,11.83,11.13,2024-09-12
+874,Milk,Meat,Metro,4.52,4.31,2024-04-18
+875,Chips,Household Items,No Frills,13.89,14.46,2024-05-04
+876,Soda,Dairy,No Frills,14.28,12.94,2024-07-16
+877,Bread,Frozen Foods,Save-On-Foods,9.54,8.9,2024-05-19
+878,Milk,Beverages,No Frills,11.78,11.07,2024-04-11
+879,Chips,Bakery,No Frills,5.22,5.26,2024-09-18
+880,Soda,Bakery,Galleria,16.69,17.63,2024-10-01
+881,Chicken Breast,Produce,Walmart,9.79,10.31,2024-09-29
+882,Frozen Pizza,Dairy,Galleria,8.19,7.67,2024-05-16
+883,Chips,Snacks,No Frills,5.98,5.68,2024-05-27
+884,Apple,Produce,Metro,2.21,2.34,2024-03-13
+885,Bread,Snacks,T&T,15.13,16.23,2024-04-21
+886,Frozen Pizza,Snacks,Save-On-Foods,16.9,16.12,2024-09-16
+887,Chips,Bakery,Save-On-Foods,17.55,17.61,2024-04-20
+888,Chicken Breast,Beverages,Metro,13.39,12.95,2024-05-06
+889,Bread,Household Items,Loblaws,4.06,4.4,2024-05-23
+890,Soda,Produce,Metro,14.06,14.17,2024-05-05
+891,Detergent,Bakery,Voila,10.35,10.71,2024-04-12
+892,Chips,Snacks,Voila,8.79,7.97,2024-04-24
+893,Milk,Dairy,Save-On-Foods,4.16,4.32,2024-06-16
+894,Chicken Breast,Dairy,Voila,8.9,8.52,2024-04-13
+895,Frozen Pizza,Bakery,No Frills,15.55,16.64,2024-08-22
+896,Soda,Dairy,T&T,19.42,19.65,2024-10-18
+897,Chicken Breast,Frozen Foods,Walmart,18.3,19.81,2024-04-09
+898,Detergent,Produce,Voila,1.8,1.77,2024-10-06
+899,Milk,Beverages,Galleria,3.24,3.14,2024-07-11
+900,Chips,Produce,T&T,16.94,18.4,2024-05-07
+901,Chips,Household Items,Loblaws,18.88,18.86,2024-08-07
+902,Chips,Meat,No Frills,8.74,9.5,2024-03-07
+903,Frozen Pizza,Bakery,Save-On-Foods,17.67,18.28,2024-07-13
+904,Detergent,Household Items,No Frills,8.14,8.12,2024-08-03
+905,Frozen Pizza,Meat,Voila,1.37,1.29,2024-08-26
+906,Milk,Beverages,Galleria,10.77,9.98,2024-07-08
+907,Apple,Meat,T&T,1.09,1.18,2024-10-11
+908,Bread,Bakery,Metro,7.85,8.46,2024-05-23
+909,Apple,Frozen Foods,Walmart,3.91,3.73,2024-09-09
+910,Bread,Snacks,Loblaws,9.18,8.35,2024-09-25
+911,Apple,Frozen Foods,Galleria,7.91,7.57,2024-09-08
+912,Apple,Frozen Foods,No Frills,1.03,1,2024-08-20
+913,Detergent,Meat,Save-On-Foods,2.84,2.76,2024-09-28
+914,Chicken Breast,Dairy,Walmart,5.98,6.3,2024-08-05
+915,Frozen Pizza,Produce,No Frills,4.1,4.09,2024-08-30
+916,Frozen Pizza,Frozen Foods,Walmart,6.02,6.16,2024-04-25
+917,Soda,Bakery,No Frills,12.58,13.73,2024-10-23
+918,Apple,Bakery,T&T,9.64,10.42,2024-06-05
+919,Chips,Household Items,Galleria,11.29,11.77,2024-03-13
+920,Chicken Breast,Dairy,T&T,6.8,6.48,2024-04-26
+921,Chips,Beverages,Walmart,19.58,19.54,2024-05-09
+922,Detergent,Produce,Galleria,2.82,2.75,2024-08-20
+923,Chicken Breast,Snacks,T&T,2.52,2.28,2024-03-25
+924,Soda,Meat,Voila,15.05,13.79,2024-05-07
+925,Chicken Breast,Produce,Galleria,19.4,17.92,2024-10-07
+926,Chicken Breast,Bakery,Save-On-Foods,1.51,1.53,2024-08-11
+927,Chips,Produce,Galleria,19.98,18.65,2024-03-09
+928,Detergent,Beverages,Walmart,17.94,17.46,2024-07-07
+929,Frozen Pizza,Beverages,Voila,13.53,14.27,2024-06-21
+930,Bread,Household Items,No Frills,16.42,17.4,2024-10-20
+931,Frozen Pizza,Frozen Foods,Walmart,10.96,11.99,2024-10-26
+932,Chicken Breast,Frozen Foods,Voila,2.57,2.34,2024-08-13
+933,Detergent,Beverages,Voila,6.34,6.19,2024-04-13
+934,Chips,Meat,T&T,18.18,19.36,2024-05-16
+935,Frozen Pizza,Meat,Metro,3.01,3.22,2024-09-07
+936,Chips,Beverages,Walmart,4.66,4.49,2024-06-13
+937,Chicken Breast,Meat,Metro,13.76,14.73,2024-04-16
+938,Chips,Dairy,No Frills,8.18,7.83,2024-04-29
+939,Bread,Household Items,Walmart,7.14,7.67,2024-08-16
+940,Bread,Household Items,Loblaws,6.53,6.73,2024-08-02
+941,Detergent,Produce,Galleria,5.05,4.93,2024-08-20
+942,Detergent,Beverages,No Frills,10.56,11.14,2024-03-30
+943,Chicken Breast,Beverages,Loblaws,5.99,6.29,2024-07-09
+944,Chicken Breast,Meat,Walmart,8.25,8.52,2024-05-30
+945,Chicken Breast,Snacks,T&T,16.97,16.52,2024-07-08
+946,Apple,Dairy,Walmart,12.01,13.18,2024-09-15
+947,Frozen Pizza,Beverages,Galleria,17.42,19.06,2024-07-21
+948,Chicken Breast,Bakery,Walmart,18.37,18.29,2024-07-31
+949,Soda,Frozen Foods,T&T,10.88,11.42,2024-06-06
+950,Chips,Produce,Metro,16.91,16.38,2024-10-28
+951,Milk,Produce,Metro,17.66,19.1,2024-04-11
+952,Chicken Breast,Beverages,Galleria,4.42,4.7,2024-03-23
+953,Frozen Pizza,Meat,T&T,11.09,11,2024-05-24
+954,Apple,Dairy,Galleria,13.89,14.31,2024-03-19
+955,Bread,Produce,Voila,15.86,15.22,2024-07-17
+956,Detergent,Meat,Save-On-Foods,15.48,15.61,2024-05-11
+957,Milk,Produce,Metro,4.93,5.23,2024-05-02
+958,Chips,Frozen Foods,Walmart,12.31,12.49,2024-08-26
+959,Apple,Household Items,No Frills,14.4,15.27,2024-08-16
+960,Detergent,Beverages,Voila,14.45,14.72,2024-04-28
+961,Bread,Snacks,Loblaws,12.4,11.86,2024-07-27
+962,Milk,Meat,No Frills,11.63,12.74,2024-08-30
+963,Milk,Bakery,Galleria,8.54,9.16,2024-03-15
+964,Chicken Breast,Beverages,Galleria,11.88,13.04,2024-08-17
+965,Detergent,Household Items,Save-On-Foods,12.69,12.09,2024-07-01
+966,Soda,Frozen Foods,Metro,17.63,17.1,2024-08-18
+967,Chips,Meat,Save-On-Foods,3.53,3.72,2024-05-06
+968,Chicken Breast,Snacks,Save-On-Foods,6.31,6.37,2024-05-08
+969,Detergent,Frozen Foods,Save-On-Foods,6.33,6.73,2024-04-05
+970,Milk,Household Items,Voila,9.83,9.34,2024-08-05
+971,Frozen Pizza,Produce,No Frills,2.27,2.23,2024-06-27
+972,Soda,Bakery,Save-On-Foods,16.97,17.42,2024-08-27
+973,Chicken Breast,Meat,Walmart,19.18,19.12,2024-10-20
+974,Frozen Pizza,Beverages,T&T,6.43,6.19,2024-06-03
+975,Chips,Frozen Foods,Voila,1.57,1.59,2024-03-02
+976,Frozen Pizza,Meat,T&T,6.88,7.49,2024-08-14
+977,Bread,Bakery,Loblaws,13.99,14.95,2024-07-05
+978,Bread,Frozen Foods,T&T,19.2,19.85,2024-05-25
+979,Apple,Bakery,Voila,7.32,7.19,2024-06-29
+980,Bread,Household Items,T&T,2.93,2.89,2024-09-24
+981,Chicken Breast,Snacks,Voila,1.4,1.52,2024-09-19
+982,Milk,Frozen Foods,Save-On-Foods,9.55,8.88,2024-05-23
+983,Chips,Snacks,No Frills,9.21,8.53,2024-04-14
+984,Chips,Bakery,Loblaws,6.02,5.73,2024-08-17
+985,Milk,Meat,Metro,6.83,6.76,2024-05-14
+986,Chicken Breast,Bakery,T&T,4.95,4.9,2024-07-17
+987,Chips,Meat,T&T,6.37,6.14,2024-07-28
+988,Milk,Snacks,Save-On-Foods,6.47,6.42,2024-04-22
+989,Chicken Breast,Beverages,Walmart,18.78,18.46,2024-10-06
+990,Apple,Snacks,No Frills,16.85,17.13,2024-06-09
+991,Soda,Meat,T&T,5.39,4.94,2024-07-06
+992,Milk,Snacks,No Frills,4.11,4.05,2024-08-21
+993,Frozen Pizza,Bakery,Metro,4.89,4.94,2024-10-08
+994,Soda,Meat,Voila,9.32,9.47,2024-03-28
+995,Bread,Household Items,Walmart,9.67,9.97,2024-08-11
+996,Chips,Dairy,Metro,2.38,2.31,2024-06-16
+997,Milk,Frozen Foods,Save-On-Foods,9.02,9.84,2024-08-02
+998,Bread,Beverages,Voila,13.34,12.7,2024-09-10
+999,Soda,Snacks,No Frills,17.04,18.12,2024-08-04
+1000,Apple,Frozen Foods,Voila,1.73,1.71,2024-05-30
