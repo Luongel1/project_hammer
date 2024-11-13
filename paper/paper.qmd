@@ -23,6 +23,9 @@ library(palmerpenguins)
 library(ggplot2)
 library(dplyr)
 library(knitr)
+library(rstanarm)
+library(arrow)
+library(data.table)
 ```
 
 
@@ -154,9 +157,15 @@ The model is executed in \texttt{R} [@citeR] using the \texttt{rstanarm} package
 
 ### Model justification
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+The selection of a linear regression model for this analysis is based on the continuous nature of `price_current`, which allows us to quantify how previous pricing, vendor, and price changes influence current pricing. Existing economic theories suggest that previous prices and historical pricing patterns are often predictive of current pricing, especially in competitive retail markets where price sensitivity and vendor-specific strategies play significant roles. The inclusion of `price_old` as a predictor aligns with time-series economic models where past data points inform future values.
 
-We can use maths by including latex between dollar signs, for instance $\theta$.
+
+Additionally, vendor differences, represented by `vendor_name`, capture potential competitive dynamics in the Canadian grocery market. Vendors may adopt distinct pricing strategies or respond differently to market conditions, and the inclusion of this categorical variable enables an analysis of these patterns across various major grocery chains. The `price_difference` variable, which represents recent price changes, provides an understanding of market adjustments and reflects fluctuations potentially influenced by external factors, such as supply chain constraints or inflation.
+
+The Bayesian approach was selected for its flexibility in incorporating prior information and its robustness in handling uncertainty within small or moderate sample sizes. Furthermore, Bayesian methods allow us to capture the posterior distributions of the parameters, which can be used to evaluate the strength and credibility of each predictor's effect on current prices. This approach also aligns with the objectives of Project Hammer by facilitating a transparent and probabilistically rigorous analysis of grocery pricing trends.
+
+In summary, this model helps explain the primary factors of current grocery prices in Canadian stores, accounting for both historical prices and vendor effects. By utilizing Bayesian framework, this analysis provides a clear quantification of the influence of each predictor while allowing for robust estimation and interpretability in the context of economic and competitive pricing strategies.
+
 
 
 # Results
@@ -272,6 +281,48 @@ Figure 4: Distribution of Price Differences (Filtered). This histogram illustrat
 To evaluate our model’s performance, we assess the predictive accuracy of the Bayesian linear regression model on the test data. The model’s Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) provide insights into the model’s ability to predict `price_current` based on `price_old`, `vendor_name`, and `price_difference`.
 
 ```{r}
+
+#### Read data ####
+# Load the cleaned data with data.table for efficiency
+analysis_data <- fread("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv")
+
+# Split data into training and testing sets
+set.seed(853)
+train_indices <- sample(seq_len(nrow(analysis_data)), size = 0.8 * nrow(analysis_data))
+analysis_data_train <- analysis_data[train_indices]
+analysis_data_test <- analysis_data[-train_indices]
+### Model data ####
+# Define a Bayesian regression model to predict `price_current`
+
+### Model data ####
+# Define a Bayesian regression model to predict `price_current`
+model <- stan_glm(
+  formula = price_current ~ price_old + as.factor(vendor_name) + price_difference,
+  data = analysis_data_train,
+  family = gaussian(),
+  prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
+  prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
+  prior_aux = exponential(rate = 1, autoscale = TRUE),
+  seed = 853
+)
+
+# Define the chunk size (adjust based on available memory)
+chunk_size <- 50000  
+num_chunks <- ceiling(nrow(analysis_data_test) / chunk_size)
+
+# Initialize a vector to store predictions
+predictions <- vector("numeric", nrow(analysis_data_test))
+
+# Loop through each chunk and generate predictions
+for (i in 1:num_chunks) {
+  start <- ((i - 1) * chunk_size) + 1
+  end <- min(i * chunk_size, nrow(analysis_data_test))
+  
+  # Generate predictions for the current chunk
+  predictions[start:end] <- predict(model, newdata = analysis_data_test[start:end, ])
+}
+
+
 # Calculate MAE and RMSE for model evaluation
 mae <- mean(abs(predictions - analysis_data_test$price_current))
 rmse <- sqrt(mean((predictions - analysis_data_test$price_current)^2))
@@ -295,19 +346,31 @@ These results demonstrate that vendor identity and previous prices are significa
 
 # Discussion
 
-## First discussion point {#sec-first-point}
+## Interpretation of Grocery Pricing Dynamics
+This study investigates the primary factors influencing current grocery prices in Canada by examining the Project Hammer dataset. Our Bayesian regression model reveals that prior prices (`price_old`), vendor identity (`vendor_name`), and recent price differences (`price_difference`) play significant roles in determining current prices. The influence of previous prices indicates price continuity across time, suggesting that grocery items tend to exhibit relatively stable pricing patterns with minor adjustments. Vendor-specific effects highlight the role of retailer pricing strategies, with some vendors maintaining consistently higher or lower prices. These vendor variations may reflect differences in market positioning, operational costs, or competitive strategies, impacting price consistency across the grocery sector.
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+Additionally, the presence of both positive and negative values in the `price_difference` variable illustrates the prevalence of both price increases and decreases, underscoring the dynamic nature of grocery pricing in response to external market forces. External factors, such as supply chain disruptions, inflation, and seasonal demand fluctuations, likely contribute to the observed variability. This model highlights the complexity of pricing dynamics and the importance of historical pricing and vendor-specific factors in shaping current grocery prices across major Canadian retailers.
 
-## Second discussion point
+## Implications for Competition and Consumer Costs
 
-Please don't use these as sub-heading labels - change them to be what your point actually is.
+The findings from Project Hammer have broader implications for both competition in the grocery sector and consumer expenses. Vendor-specific price differences suggest that some retailers adopt competitive pricing strategies to attract cost-sensitive consumers, while others may leverage brand loyalty or perceived quality to justify higher prices. In this context, price-sensitive consumers may benefit from exploring pricing variations across vendors to find the best deals, while retailers may face pressure to adjust their prices to remain competitive.
 
-## Third discussion point
+The stability of historical prices as a predictor of current prices also highlights potential concerns about price rigidity in certain product categories. This rigidity may limit the effectiveness of competition, as vendors might rely on historical price baselines rather than actively adjusting prices in response to market demand. Policymakers interested in promoting competition in the grocery sector could consider encouraging more frequent pricing updates or transparency in pricing strategies, particularly for staple items that heavily impact household budgets.
 
-## Weaknesses and next steps
+## Limitations of Data and Model
 
-Weaknesses and next steps should also be included.
+This analysis has several limitations that may impact the accuracy and comprehensiveness of our findings. First, the dataset is limited to major grocery chains, which may not capture price variations across smaller or regional stores that could offer different pricing structures. Additionally, the lack of granular product-level data limits our ability to analyze category-specific trends (e.g., dairy versus produce) or regional differences within the same vendor.
+
+The model’s focus on historical prices, vendor identity, and price differences also excludes potential external factors that may influence pricing, such as seasonal demand, promotions, or supply chain constraints. Including additional variables, such as the frequency of price adjustments or regional economic indicators, could enhance the model’s predictive power and provide a more comprehensive view of grocery pricing dynamics.
+
+## Future Research Direction
+
+Future research could build on this work by incorporating a wider range of variables, including product-specific attributes, seasonal factors, and promotional data, to capture a broader spectrum of influences on grocery prices. Exploring how demographic factors, such as income levels in different regions, correlate with price patterns across vendors could offer insights into the socio-economic impacts of grocery pricing on different communities.
+
+Increasing the model’s granularity to analyze price dynamics at the regional or product-category level would provide a deeper understanding of how specific items are priced within the same store or across regions. Additionally, expanding the analysis to include other sectors, such as online grocery prices or specialty stores, could provide a more holistic view of the Canadian grocery market.
+
+Incorporating machine learning techniques could also improve the model's adaptability to rapidly changing market conditions, allowing for more nuanced forecasts of pricing trends. This approach could be particularly useful in the face of ongoing challenges such as inflation and supply chain disruptions, offering a valuable tool for policymakers and consumers interested in understanding and mitigating grocery costs in Canada.
+
 
 \newpage
 
@@ -325,48 +388,6 @@ Weaknesses and next steps should also be included.
 In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
 
 In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
-
-## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
 
 
 
