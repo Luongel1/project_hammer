@@ -5,7 +5,7 @@ This paper presents a statistical analysis of grocery pricing dynamics in Canada
 ## File Structure
 The repo is structured as:
 
--   `data/raw_data` contains the raw data as obtained from FiveThirtyEight.
+-   `data/raw_data` contains the raw data as obtained from The Hammer Project.
 -   `data/analysis_data` contains the cleaned dataset that was constructed.
 -   `model` contains fitted models. 
 -   `other` contains details about LLM chat interactions and sketches.
