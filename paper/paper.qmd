@@ -49,7 +49,7 @@ By narrowing the scope to recent data, Project Hammer's dataset captures real-ti
 
 
 ## Measurement
-	
+
 Each entry in the dataset represents a captured moment in time where prices, products, and vendor information were recorded. The measurement process involved regular data collection from the online pricing systems of the following prominent grocery chains: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Each entry captures variables such as:  product name, vendor name, and both current and previous prices. The Project Hammer initiative leveraged web scraping technology to ensure a consistent and standardized entry format for all retailers, documenting prices at regular intervals. This approach ensures that price points reflect real-time data rather than historical estimates or annual averages, providing a close approximation of consumer experiences. The data set records the price of each grocery item in Canadian dollars, including items from broad categories such as fresh produce, dairy, pantry goods, and household essentials, to present a holistic view of grocery costs.
 
 <!-- Each row entry in Project Hammer represents a unique product listing per vendor, featuring five main columns: product_name, vendor_name, price_current, price_old, and price_difference. The price_difference column is particularly useful for observing temporal price changes, while the price_old variable provides context for price continuity or volatility. The structured approach used in capturing this data allows us to transform general observations of grocery pricing trends into quantifiable entries that can be statistically analyzed to reveal underlying patterns in pricing strategies across different vendors and products. -->
@@ -115,8 +115,8 @@ The results of our analysis of the Project Hammer dataset explain important find
 We begin by examining average current prices (`price_current`) across different grocery vendors to identify potential pricing variations in the Canadian grocery market.
 
 ```{r}
-#| label: fig1
-#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| label: fig-avg-curr-price
+#| fig-cap: Average Current Price by Vendor. This bar plot shows the average price of products sold by each grocery vendor in Canadian dollars (CAD). Variations in pricing suggest differences in market positioning or pricing strategies among vendors, with some retailers consistently offering higher or lower prices across product categories.
 #| echo: false
 #| warning: false
 #| message: false
@@ -144,15 +144,14 @@ We begin by examining average current prices (`price_current`) across different 
 
 ```
 
-Figure 1: Average Current Price by Vendor. This bar plot shows the average price of products sold by each grocery vendor in Canadian dollars (CAD). Variations in pricing suggest differences in market positioning or pricing strategies among vendors, with some retailers consistently offering higher or lower prices across product categories.
 
 ## Price Difference Analysis
 
 We further analyze `price_difference`, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides insights into recent price adjustments across vendors.
 
 ```{r}
-#| label: fig2
-#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| label: fig-avg-price-diff
+#| fig-cap: Average Price Difference by Vendor. This bar plot shows the average price change per vendor, highlighting retailers with the most significant pricing adjustments. Positive differences suggest recent price increases, while negative differences indicate reductions, reflecting possible discounting or competitive pricing strategies.
 #| echo: false
 #| warning: false
 #| message: false
@@ -175,7 +174,6 @@ We further analyze `price_difference`, which captures the change between the cur
 
 ```
 
-Figure 2: Average Price Difference by Vendor. This bar plot shows the average price change per vendor, highlighting retailers with the most significant pricing adjustments. Positive differences suggest recent price increases, while negative differences indicate reductions, reflecting possible discounting or competitive pricing strategies.
 
 ## Relationship Between Previous and Current Prices
 
@@ -183,8 +181,8 @@ Figure 2: Average Price Difference by Vendor. This bar plot shows the average pr
 We assess the relationship between previous prices (`price_old`) and current prices (`price_current`) to understand price consistency and potential price elasticity across products.
 
 ```{r}
-#| label: fig3
-#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| label: fig-past-curr
+#| fig-cap: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
 #| echo: false
 #| warning: false
 #| message: false
@@ -204,19 +202,18 @@ We assess the relationship between previous prices (`price_old`) and current pri
 
 
 ```
-Figure 3: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
+
 
 ## Distribution of Price Differences
 
 To further explore pricing dynamics, we examine the distribution of `price_difference`, capturing both price increases and decreases across the dataset.
 
 ```{r}
-#| label: fig4
-#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| label: fig-dist-price
+#| fig-cap: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
 #| echo: false
 #| warning: false
 #| message: false
-
 
 # Calculate mean and standard deviation of price_difference
 # mean_diff <- mean(analysis_data$price_difference, na.rm = TRUE)
@@ -240,7 +237,8 @@ To further explore pricing dynamics, we examine the distribution of `price_diffe
 
 ```
 
-Figure 4: Distribution of Price Differences (Filtered). This histogram illustrates the frequency of price changes across products, with extreme values beyond three standard deviations removed for clarity. The concentration around zero suggests that small price adjustments are most common, while the presence of both negative and positive values indicates instances of both price increases and decreases. This distribution provides insight into the stability and variability of pricing across vendors.
+<!-- Figure 4: Distribution of Price Differences (Filtered). This histogram illustrates the frequency of price changes across products, with extreme values beyond three standard deviations removed for clarity. The concentration around zero suggests that small price adjustments are most common, while the presence of both negative and positive values indicates instances of both price increases and decreases. This distribution provides insight into the stability and variability of pricing across vendors. -->
+
 ## Model Evaluation
 
 To evaluate our model’s performance, we assess the predictive accuracy of the Bayesian linear regression model on the test data. The model’s Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) provide insights into the model’s ability to predict `price_current` based on `price_old`, `vendor_name`, and `price_difference`.
@@ -318,6 +316,8 @@ Table 1: Model Evaluation Metrics. The table displays the MAE and RMSE for the m
 
 These results demonstrate that vendor identity and previous prices are significant predictors of current prices in the Canadian grocery sector, with implications for understanding competitive strategies and consumer price sensitivity in the market.
 
+=======
+>>>>>>> 3b05c34e7a7a3720d0e488dcd31eaaaa4c292cae
 
 # Discussion
 
