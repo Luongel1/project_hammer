@@ -59,58 +59,14 @@ By narrowing the scope to recent data, Project Hammer's dataset captures real-ti
 
 ## Measurement
 	
-Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+
 
 ## Outcome variables
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
 
-
-
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
-
-```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("data/02-analysis_data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
 
 ## Predictor variables
 
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
 
 
 
@@ -177,6 +133,12 @@ The results of our analysis of the Project Hammer dataset explain important find
 We begin by examining average current prices (`price_current`) across different grocery vendors to identify potential pricing variations in the Canadian grocery market.
 
 ```{r}
+#| label: fig-avg-curr-price
+#| fig-cap: Average Current Price by Vendor. This bar plot shows the average price of products sold by each grocery vendor in Canadian dollars (CAD). Variations in pricing suggest differences in market positioning or pricing strategies among vendors, with some retailers consistently offering higher or lower prices across product categories.
+#| echo: false
+#| warning: false
+#| message: false
+
 #### Read data ####
 # Load the cleaned dataset
 analysis_data <- read_csv("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv", show_col_types = FALSE)
@@ -200,13 +162,18 @@ vendor_price_plot
 
 ```
 
-Figure 1: Average Current Price by Vendor. This bar plot shows the average price of products sold by each grocery vendor in Canadian dollars (CAD). Variations in pricing suggest differences in market positioning or pricing strategies among vendors, with some retailers consistently offering higher or lower prices across product categories.
 
 ## Price Difference Analysis
 
 We further analyze `price_difference`, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides insights into recent price adjustments across vendors.
 
 ```{r}
+#| label: fig-avg-price-diff
+#| fig-cap: Average Price Difference by Vendor. This bar plot shows the average price change per vendor, highlighting retailers with the most significant pricing adjustments. Positive differences suggest recent price increases, while negative differences indicate reductions, reflecting possible discounting or competitive pricing strategies.
+#| echo: false
+#| warning: false
+#| message: false
+
 # Average price difference by vendor
 price_diff_plot <- analysis_data %>%
   group_by(vendor_name) %>%
@@ -224,7 +191,6 @@ price_diff_plot
 
 ```
 
-Figure 2: Average Price Difference by Vendor. This bar plot shows the average price change per vendor, highlighting retailers with the most significant pricing adjustments. Positive differences suggest recent price increases, while negative differences indicate reductions, reflecting possible discounting or competitive pricing strategies.
 
 ## Relationship Between Previous and Current Prices
 
@@ -232,6 +198,12 @@ Figure 2: Average Price Difference by Vendor. This bar plot shows the average pr
 We assess the relationship between previous prices (`price_old`) and current prices (`price_current`) to understand price consistency and potential price elasticity across products.
 
 ```{r}
+#| label: fig-past-curr
+#| fig-cap: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
+#| echo: false
+#| warning: false
+#| message: false
+
 # Scatter plot of previous price vs. current price
 price_relationship_plot <- ggplot(analysis_data, aes(x = price_old, y = price_current)) +
   geom_point(alpha = 0.4, color = "blue") +
@@ -246,13 +218,19 @@ price_relationship_plot
 
 
 ```
-Figure 3: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
+
 
 ## Distribution of Price Differences
 
 To further explore pricing dynamics, we examine the distribution of `price_difference`, capturing both price increases and decreases across the dataset.
 
 ```{r}
+#| label: fig-dist-price
+#| fig-cap: Relationship Between Previous and Current Prices. This scatter plot with a linear regression line shows the correlation between previous and current prices. A positive relationship would indicate that higher previous prices predict higher current prices, implying potential price stability or gradual price changes in the grocery market.
+#| echo: false
+#| warning: false
+#| message: false
+
 # Calculate mean and standard deviation of price_difference
 mean_diff <- mean(analysis_data$price_difference, na.rm = TRUE)
 sd_diff <- sd(analysis_data$price_difference, na.rm = TRUE)
@@ -274,78 +252,6 @@ price_difference_hist <- ggplot(filtered_data, aes(x = price_difference)) +
 price_difference_hist
 
 ```
-
-Figure 4: Distribution of Price Differences (Filtered). This histogram illustrates the frequency of price changes across products, with extreme values beyond three standard deviations removed for clarity. The concentration around zero suggests that small price adjustments are most common, while the presence of both negative and positive values indicates instances of both price increases and decreases. This distribution provides insight into the stability and variability of pricing across vendors.
-## Model Evaluation
-
-To evaluate our model’s performance, we assess the predictive accuracy of the Bayesian linear regression model on the test data. The model’s Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) provide insights into the model’s ability to predict `price_current` based on `price_old`, `vendor_name`, and `price_difference`.
-
-```{r}
-
-#### Read Data ####
-# Load only a sample of the data to reduce memory usage (e.g., 10% of the dataset)
-set.seed(853)
-
-analysis_data <- fread("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv")
-analysis_data <- analysis_data[sample(.N, size = 0.1 * .N)]
-
-# Split data into training and testing sets
-train_indices <- sample(seq_len(nrow(analysis_data)), size = 0.8 * nrow(analysis_data))
-analysis_data_train <- analysis_data[train_indices]
-analysis_data_test <- analysis_data[-train_indices]
-
-#### Model Data ####
-# Define a Bayesian regression model to predict `price_current` with fewer iterations and lighter priors
-
-model <- stan_glm(
-  formula = price_current ~ price_old + as.factor(vendor_name) + price_difference,
-  data = analysis_data_train,
-  family = gaussian(),
-  prior = normal(location = 0, scale = 5, autoscale = TRUE),      # Slightly broader prior
-  prior_intercept = normal(location = 0, scale = 5, autoscale = TRUE),
-  prior_aux = exponential(rate = 0.5, autoscale = TRUE),          # Less informative prior
-  iter = 500,                                                     # Reduce iterations
-  chains = 2,                                                     # Fewer chains for faster computation
-  seed = 853
-)
-
-#### Predict in Chunks ####
-# Define chunk size based on available memory
-chunk_size <- 20000  # Adjusted smaller chunk size for efficiency
-num_chunks <- ceiling(nrow(analysis_data_test) / chunk_size)
-
-# Initialize a vector to store predictions
-predictions <- numeric(nrow(analysis_data_test))
-
-# Loop through each chunk to generate predictions
-for (i in seq_len(num_chunks)) {
-  start <- ((i - 1) * chunk_size) + 1
-  end <- min(i * chunk_size, nrow(analysis_data_test))
-  
-  # Generate predictions for the current chunk
-  predictions[start:end] <- predict(model, newdata = analysis_data_test[start:end, ])
-}
-
-#### Model Evaluation Metrics ####
-# Calculate Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE)
-mae <- mean(abs(predictions - analysis_data_test$price_current))
-rmse <- sqrt(mean((predictions - analysis_data_test$price_current)^2))
-
-# Store results in a data frame
-evaluation_metrics <- data.table(
-  Metric = c("Mean Absolute Error (MAE)", "Root Mean Squared Error (RMSE)"),
-  Value = c(round(mae, 2), round(rmse, 2))
-)
-
-# Display the results table
-print(evaluation_metrics)
-
-
-```
-
-Table 1: Model Evaluation Metrics. The table displays the MAE and RMSE for the model, reflecting the average and squared prediction errors, respectively. Lower values indicate better predictive accuracy, suggesting that the model effectively captures the relationship between previous prices, vendor identities, and price differences.
-
-These results demonstrate that vendor identity and previous prices are significant predictors of current prices in the Canadian grocery sector, with implications for understanding competitive strategies and consumer price sensitivity in the market.
 
 
 # Discussion
