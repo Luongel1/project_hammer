@@ -50,7 +50,7 @@ Telegraphing paragraph: The remainder of this paper is structured as follows. @s
 
 ## Overview
 
-For this study, we utilize data from Project Hammer, a Canadian initiative designed to monitor grocery prices across major retailers in Canada. The Project Hammer dataset was collected from eight prominent Canadian grocery vendors—Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods—between February 28, 2024, and the latest available data load in the database [@citeProjectHammerData]. This dataset enables us to investigate price fluctuations, identify pricing trends, and explore potential competitive or collusive patterns within the Canadian grocery sector.
+For this study, we utilize data from Project Hammer, a Canadian initiative designed to monitor grocery prices across major retailers in Canada. The Project Hammer dataset was collected from eight prominent Canadian grocery vendors—Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods—between February 28, 2024, and the latest available data load in the database [ citeProjectHammerData]. This dataset enables us to investigate price fluctuations, identify pricing trends, and explore potential competitive or collusive patterns within the Canadian grocery sector.
 Project Hammer aims to support regulatory efforts by providing data on price transparency, making it suitable for academic research and potential legal analysis. Following data processing and cleaning procedures outlined in Section 3.2, the dataset was structured to allow an analysis of historical price changes and vendor-specific price patterns.
 The dataset contains 1,996,969 rows and 5 columns, with variables capturing product (product name), vendor_name (name of the grocery retailer), price_current (current product price at the time of recording), price_old (previous recorded price for the product), and price_difference (difference between the current and old prices). Price data is recorded in Canadian dollars and captures a broad range of grocery items from various categories, including fresh produce, dairy, pantry staples, and household items.
 To ensure the quality and consistency of the data, we focused on removing missing values and imputing outlier prices when necessary. For this analysis, we excluded entries with extreme price fluctuations beyond three standard deviations, as these could represent temporary discounts or data recording anomalies. This cleaning process provides a balanced and accurate reflection of grocery pricing, allowing for robust statistical analysis on vendor-specific trends and average price comparisons across product types.
@@ -147,8 +147,8 @@ The model can be represented mathematically as follows:
 
 \textbf{Where:}
 \begin{itemize}
-    \item $\beta_0$ is the intercept term, representing the baseline estimage of `price_current`
-    \item $\beta_1$, $\beta_2$, and $\beta_3$ are the coefficients representing the effects of `price_old`, `vendor_name` and `price_difference` on `price_current`.
+    \item $\beta_0$ is the intercept term, representing the baseline estimate of $price_{current}$
+    \item $\beta_1$, $\beta_2$, and $\beta_3$ are the coefficients representing the effects of $price_{old}$, $vendor_{name}$ and $price_{difference}$ on $price_{current}$.
     \item $\sigma^2$represents the variance of the error term, capturing unexplained variability in current prices.
 \end{itemize}
 
@@ -282,39 +282,43 @@ To evaluate our model’s performance, we assess the predictive accuracy of the 
 
 ```{r}
 
-#### Read data ####
-# Load the cleaned data with data.table for efficiency
+#### Read Data ####
+# Load only a sample of the data to reduce memory usage (e.g., 10% of the dataset)
+set.seed(853)
+
 analysis_data <- fread("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv")
+analysis_data <- analysis_data[sample(.N, size = 0.1 * .N)]
 
 # Split data into training and testing sets
-set.seed(853)
 train_indices <- sample(seq_len(nrow(analysis_data)), size = 0.8 * nrow(analysis_data))
 analysis_data_train <- analysis_data[train_indices]
 analysis_data_test <- analysis_data[-train_indices]
-### Model data ####
-# Define a Bayesian regression model to predict `price_current`
 
-### Model data ####
-# Define a Bayesian regression model to predict `price_current`
+#### Model Data ####
+# Define a Bayesian regression model to predict `price_current` with fewer iterations and lighter priors
+
 model <- stan_glm(
   formula = price_current ~ price_old + as.factor(vendor_name) + price_difference,
   data = analysis_data_train,
   family = gaussian(),
-  prior = normal(location = 0, scale = 2.5, autoscale = TRUE),
-  prior_intercept = normal(location = 0, scale = 2.5, autoscale = TRUE),
-  prior_aux = exponential(rate = 1, autoscale = TRUE),
+  prior = normal(location = 0, scale = 5, autoscale = TRUE),      # Slightly broader prior
+  prior_intercept = normal(location = 0, scale = 5, autoscale = TRUE),
+  prior_aux = exponential(rate = 0.5, autoscale = TRUE),          # Less informative prior
+  iter = 500,                                                     # Reduce iterations
+  chains = 2,                                                     # Fewer chains for faster computation
   seed = 853
 )
 
-# Define the chunk size (adjust based on available memory)
-chunk_size <- 50000  
+#### Predict in Chunks ####
+# Define chunk size based on available memory
+chunk_size <- 20000  # Adjusted smaller chunk size for efficiency
 num_chunks <- ceiling(nrow(analysis_data_test) / chunk_size)
 
 # Initialize a vector to store predictions
-predictions <- vector("numeric", nrow(analysis_data_test))
+predictions <- numeric(nrow(analysis_data_test))
 
-# Loop through each chunk and generate predictions
-for (i in 1:num_chunks) {
+# Loop through each chunk to generate predictions
+for (i in seq_len(num_chunks)) {
   start <- ((i - 1) * chunk_size) + 1
   end <- min(i * chunk_size, nrow(analysis_data_test))
   
@@ -322,20 +326,20 @@ for (i in 1:num_chunks) {
   predictions[start:end] <- predict(model, newdata = analysis_data_test[start:end, ])
 }
 
-
-# Calculate MAE and RMSE for model evaluation
+#### Model Evaluation Metrics ####
+# Calculate Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE)
 mae <- mean(abs(predictions - analysis_data_test$price_current))
 rmse <- sqrt(mean((predictions - analysis_data_test$price_current)^2))
 
-evaluation_metrics <- data.frame(
+# Store results in a data frame
+evaluation_metrics <- data.table(
   Metric = c("Mean Absolute Error (MAE)", "Root Mean Squared Error (RMSE)"),
   Value = c(round(mae, 2), round(rmse, 2))
 )
 
 # Display the results table
-kable(evaluation_metrics, col.names = c("Evaluation Metric", "Value"))
-
 print(evaluation_metrics)
+
 
 ```
 
@@ -385,9 +389,6 @@ Incorporating machine learning techniques could also improve the model's adaptab
 
 ## Posterior predictive check
 
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
 
 
 

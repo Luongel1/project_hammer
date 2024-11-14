@@ -236,7 +236,7 @@
 \makeatother
 \subtitle{My subtitle if needed}
 \author{First author \and Another author}
-\date{November 13, 2024}
+\date{November 14, 2024}
 
 \begin{document}
 \maketitle
@@ -267,19 +267,19 @@ initiative designed to monitor grocery prices across major retailers in
 Canada. The Project Hammer dataset was collected from eight prominent
 Canadian grocery vendors---Voila, T\&T, Loblaws, No Frills, Metro,
 Galleria, Walmart, and Save-On-Foods---between February 28, 2024, and
-the latest available data load in the database
-(\textbf{citeProjectHammerData?}). This dataset enables us to
-investigate price fluctuations, identify pricing trends, and explore
-potential competitive or collusive patterns within the Canadian grocery
-sector. Project Hammer aims to support regulatory efforts by providing
-data on price transparency, making it suitable for academic research and
-potential legal analysis. Following data processing and cleaning
-procedures outlined in Section 3.2, the dataset was structured to allow
-an analysis of historical price changes and vendor-specific price
-patterns. The dataset contains 1,996,969 rows and 5 columns, with
-variables capturing product (product name), vendor\_name (name of the
-grocery retailer), price\_current (current product price at the time of
-recording), price\_old (previous recorded price for the product), and
+the latest available data load in the database {[}
+citeProjectHammerData{]}. This dataset enables us to investigate price
+fluctuations, identify pricing trends, and explore potential competitive
+or collusive patterns within the Canadian grocery sector. Project Hammer
+aims to support regulatory efforts by providing data on price
+transparency, making it suitable for academic research and potential
+legal analysis. Following data processing and cleaning procedures
+outlined in Section 3.2, the dataset was structured to allow an analysis
+of historical price changes and vendor-specific price patterns. The
+dataset contains 1,996,969 rows and 5 columns, with variables capturing
+product (product name), vendor\_name (name of the grocery retailer),
+price\_current (current product price at the time of recording),
+price\_old (previous recorded price for the product), and
 price\_difference (difference between the current and old prices). Price
 data is recorded in Canadian dollars and captures a broad range of
 grocery items from various categories, including fresh produce, dairy,
@@ -398,8 +398,8 @@ The model can be represented mathematically as follows:
 \textbf{Where:}
 
 \begin{itemize}
-    \item $\beta_0$ is the intercept term, representing the baseline estimage of `price_current`
-    \item $\beta_1$, $\beta_2$, and $\beta_3$ are the coefficients representing the effects of `price_old`, `vendor_name` and `price_difference` on `price_current`.
+    \item $\beta_0$ is the intercept term, representing the baseline estimate of $price_{current}$
+    \item $\beta_1$, $\beta_2$, and $\beta_3$ are the coefficients representing the effects of $price_{old}$, $vendor_{name}$ and $price_{difference}$ on $price_{current}$.
     \item $\sigma^2$represents the variance of the error term, capturing unexplained variability in current prices.
 \end{itemize}
 
@@ -619,27 +619,30 @@ based on \texttt{price\_old}, \texttt{vendor\_name}, and
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DocumentationTok{\#\#\#\# Read data \#\#\#\#}
-\CommentTok{\# Load the cleaned data with data.table for efficiency}
+\DocumentationTok{\#\#\#\# Read Data \#\#\#\#}
+\CommentTok{\# Load only a sample of the data to reduce memory usage (e.g., 10\% of the dataset)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{853}\NormalTok{)}
+
 \NormalTok{analysis\_data }\OtherTok{\textless{}{-}} \FunctionTok{fread}\NormalTok{(}\StringTok{"C:/Users/eliza/Downloads/hammer{-}3{-}compressed/cleaned\_price\_changes.csv"}\NormalTok{)}
+\NormalTok{analysis\_data }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data[}\FunctionTok{sample}\NormalTok{(.N, }\AttributeTok{size =} \FloatTok{0.1} \SpecialCharTok{*}\NormalTok{ .N)]}
 
 \CommentTok{\# Split data into training and testing sets}
-\FunctionTok{set.seed}\NormalTok{(}\DecValTok{853}\NormalTok{)}
 \NormalTok{train\_indices }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{seq\_len}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(analysis\_data)), }\AttributeTok{size =} \FloatTok{0.8} \SpecialCharTok{*} \FunctionTok{nrow}\NormalTok{(analysis\_data))}
 \NormalTok{analysis\_data\_train }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data[train\_indices]}
 \NormalTok{analysis\_data\_test }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data[}\SpecialCharTok{{-}}\NormalTok{train\_indices]}
-\DocumentationTok{\#\#\# Model data \#\#\#\#}
-\CommentTok{\# Define a Bayesian regression model to predict \textasciigrave{}price\_current\textasciigrave{}}
 
-\DocumentationTok{\#\#\# Model data \#\#\#\#}
-\CommentTok{\# Define a Bayesian regression model to predict \textasciigrave{}price\_current\textasciigrave{}}
+\DocumentationTok{\#\#\#\# Model Data \#\#\#\#}
+\CommentTok{\# Define a Bayesian regression model to predict \textasciigrave{}price\_current\textasciigrave{} with fewer iterations and lighter priors}
+\FunctionTok{library}\NormalTok{(rstanarm)}
 \NormalTok{model }\OtherTok{\textless{}{-}} \FunctionTok{stan\_glm}\NormalTok{(}
   \AttributeTok{formula =}\NormalTok{ price\_current }\SpecialCharTok{\textasciitilde{}}\NormalTok{ price\_old }\SpecialCharTok{+} \FunctionTok{as.factor}\NormalTok{(vendor\_name) }\SpecialCharTok{+}\NormalTok{ price\_difference,}
   \AttributeTok{data =}\NormalTok{ analysis\_data\_train,}
   \AttributeTok{family =} \FunctionTok{gaussian}\NormalTok{(),}
-  \AttributeTok{prior =} \FunctionTok{normal}\NormalTok{(}\AttributeTok{location =} \DecValTok{0}\NormalTok{, }\AttributeTok{scale =} \FloatTok{2.5}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),}
-  \AttributeTok{prior\_intercept =} \FunctionTok{normal}\NormalTok{(}\AttributeTok{location =} \DecValTok{0}\NormalTok{, }\AttributeTok{scale =} \FloatTok{2.5}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),}
-  \AttributeTok{prior\_aux =} \FunctionTok{exponential}\NormalTok{(}\AttributeTok{rate =} \DecValTok{1}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{prior =} \FunctionTok{normal}\NormalTok{(}\AttributeTok{location =} \DecValTok{0}\NormalTok{, }\AttributeTok{scale =} \DecValTok{5}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),      }\CommentTok{\# Slightly broader prior}
+  \AttributeTok{prior\_intercept =} \FunctionTok{normal}\NormalTok{(}\AttributeTok{location =} \DecValTok{0}\NormalTok{, }\AttributeTok{scale =} \DecValTok{5}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),}
+  \AttributeTok{prior\_aux =} \FunctionTok{exponential}\NormalTok{(}\AttributeTok{rate =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{autoscale =} \ConstantTok{TRUE}\NormalTok{),          }\CommentTok{\# Less informative prior}
+  \AttributeTok{iter =} \DecValTok{500}\NormalTok{,                                                     }\CommentTok{\# Reduce iterations}
+  \AttributeTok{chains =} \DecValTok{2}\NormalTok{,                                                     }\CommentTok{\# Fewer chains for faster computation}
   \AttributeTok{seed =} \DecValTok{853}
 \NormalTok{)}
 \end{Highlighting}
@@ -649,116 +652,98 @@ based on \texttt{price\_old}, \texttt{vendor\_name}, and
 
 SAMPLING FOR MODEL 'continuous' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 0.001214 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 12.14 seconds.
+Chain 1: Gradient evaluation took 0.000105 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 1.05 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
-Chain 1: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 1: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 1: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 1: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 1: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 1: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 1: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 1: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 1: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 1: Iteration:   1 / 500 [  0%]  (Warmup)
+Chain 1: Iteration:  50 / 500 [ 10%]  (Warmup)
+Chain 1: Iteration: 100 / 500 [ 20%]  (Warmup)
+Chain 1: Iteration: 150 / 500 [ 30%]  (Warmup)
+Chain 1: Iteration: 200 / 500 [ 40%]  (Warmup)
+Chain 1: Iteration: 250 / 500 [ 50%]  (Warmup)
+Chain 1: Iteration: 251 / 500 [ 50%]  (Sampling)
+Chain 1: Iteration: 300 / 500 [ 60%]  (Sampling)
+Chain 1: Iteration: 350 / 500 [ 70%]  (Sampling)
+Chain 1: Iteration: 400 / 500 [ 80%]  (Sampling)
+Chain 1: Iteration: 450 / 500 [ 90%]  (Sampling)
+Chain 1: Iteration: 500 / 500 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.56 seconds (Warm-up)
-Chain 1:                225.422 seconds (Sampling)
-Chain 1:                225.982 seconds (Total)
+Chain 1:  Elapsed Time: 0.056 seconds (Warm-up)
+Chain 1:                3.902 seconds (Sampling)
+Chain 1:                3.958 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'continuous' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 3.6e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.36 seconds.
+Chain 2: Gradient evaluation took 2.5e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.25 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
-Chain 2: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 2: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 2: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 2: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 2: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 2: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 2: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 2: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 2: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
+Chain 2: Iteration:   1 / 500 [  0%]  (Warmup)
+Chain 2: Iteration:  50 / 500 [ 10%]  (Warmup)
+Chain 2: Iteration: 100 / 500 [ 20%]  (Warmup)
+Chain 2: Iteration: 150 / 500 [ 30%]  (Warmup)
+Chain 2: Iteration: 200 / 500 [ 40%]  (Warmup)
+Chain 2: Iteration: 250 / 500 [ 50%]  (Warmup)
+Chain 2: Iteration: 251 / 500 [ 50%]  (Sampling)
+Chain 2: Iteration: 300 / 500 [ 60%]  (Sampling)
+Chain 2: Iteration: 350 / 500 [ 70%]  (Sampling)
+Chain 2: Iteration: 400 / 500 [ 80%]  (Sampling)
+Chain 2: Iteration: 450 / 500 [ 90%]  (Sampling)
+Chain 2: Iteration: 500 / 500 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.47 seconds (Warm-up)
-Chain 2:                208.219 seconds (Sampling)
-Chain 2:                208.689 seconds (Total)
+Chain 2:  Elapsed Time: 0.036 seconds (Warm-up)
+Chain 2:                3.936 seconds (Sampling)
+Chain 2:                3.972 seconds (Total)
 Chain 2: 
+\end{verbatim}
 
-SAMPLING FOR MODEL 'continuous' NOW (CHAIN 3).
-Chain 3: 
-Chain 3: Gradient evaluation took 4.6e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.46 seconds.
-Chain 3: Adjust your expectations accordingly!
-Chain 3: 
-Chain 3: 
-Chain 3: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 3: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 3: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 3: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 3: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 3: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 3: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 3: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 3: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 3: 
-Chain 3:  Elapsed Time: 0.522 seconds (Warm-up)
-Chain 3:                207.839 seconds (Sampling)
-Chain 3:                208.361 seconds (Total)
-Chain 3: 
+\begin{verbatim}
+Warning: There were 1 chains where the estimated Bayesian Fraction of Missing Information was low. See
+https://mc-stan.org/misc/warnings.html#bfmi-low
+\end{verbatim}
 
-SAMPLING FOR MODEL 'continuous' NOW (CHAIN 4).
-Chain 4: 
-Chain 4: Gradient evaluation took 2.7e-05 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.27 seconds.
-Chain 4: Adjust your expectations accordingly!
-Chain 4: 
-Chain 4: 
-Chain 4: Iteration:    1 / 2000 [  0%]  (Warmup)
-Chain 4: Iteration:  200 / 2000 [ 10%]  (Warmup)
-Chain 4: Iteration:  400 / 2000 [ 20%]  (Warmup)
-Chain 4: Iteration:  600 / 2000 [ 30%]  (Warmup)
-Chain 4: Iteration:  800 / 2000 [ 40%]  (Warmup)
-Chain 4: Iteration: 1000 / 2000 [ 50%]  (Warmup)
-Chain 4: Iteration: 1001 / 2000 [ 50%]  (Sampling)
-Chain 4: Iteration: 1200 / 2000 [ 60%]  (Sampling)
-Chain 4: Iteration: 1400 / 2000 [ 70%]  (Sampling)
-Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
-Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
-Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
-Chain 4: 
-Chain 4:  Elapsed Time: 0.31 seconds (Warm-up)
-Chain 4:                210.47 seconds (Sampling)
-Chain 4:                210.78 seconds (Total)
-Chain 4: 
+\begin{verbatim}
+Warning: Examine the pairs() plot to diagnose sampling problems
+\end{verbatim}
+
+\begin{verbatim}
+Warning: The largest R-hat is 1.6, indicating chains have not mixed.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#r-hat
+\end{verbatim}
+
+\begin{verbatim}
+Warning: Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#bulk-ess
+\end{verbatim}
+
+\begin{verbatim}
+Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#tail-ess
+\end{verbatim}
+
+\begin{verbatim}
+Warning: Markov chains did not converge! Do not analyze results!
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{\# Define the chunk size (adjust based on available memory)}
-\NormalTok{chunk\_size }\OtherTok{\textless{}{-}} \DecValTok{50000}  
+\DocumentationTok{\#\#\#\# Predict in Chunks \#\#\#\#}
+\CommentTok{\# Define chunk size based on available memory}
+\NormalTok{chunk\_size }\OtherTok{\textless{}{-}} \DecValTok{20000}  \CommentTok{\# Adjusted smaller chunk size for efficiency}
 \NormalTok{num\_chunks }\OtherTok{\textless{}{-}} \FunctionTok{ceiling}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(analysis\_data\_test) }\SpecialCharTok{/}\NormalTok{ chunk\_size)}
 
 \CommentTok{\# Initialize a vector to store predictions}
-\NormalTok{predictions }\OtherTok{\textless{}{-}} \FunctionTok{vector}\NormalTok{(}\StringTok{"numeric"}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(analysis\_data\_test))}
+\NormalTok{predictions }\OtherTok{\textless{}{-}} \FunctionTok{numeric}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(analysis\_data\_test))}
 
-\CommentTok{\# Loop through each chunk and generate predictions}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{num\_chunks) \{}
+\CommentTok{\# Loop through each chunk to generate predictions}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \FunctionTok{seq\_len}\NormalTok{(num\_chunks)) \{}
 \NormalTok{  start }\OtherTok{\textless{}{-}}\NormalTok{ ((i }\SpecialCharTok{{-}} \DecValTok{1}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ chunk\_size) }\SpecialCharTok{+} \DecValTok{1}
 \NormalTok{  end }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(i }\SpecialCharTok{*}\NormalTok{ chunk\_size, }\FunctionTok{nrow}\NormalTok{(analysis\_data\_test))}
   
@@ -766,42 +751,27 @@ Chain 4:
 \NormalTok{  predictions[start}\SpecialCharTok{:}\NormalTok{end] }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(model, }\AttributeTok{newdata =}\NormalTok{ analysis\_data\_test[start}\SpecialCharTok{:}\NormalTok{end, ])}
 \NormalTok{\}}
 
-
-\CommentTok{\# Calculate MAE and RMSE for model evaluation}
+\DocumentationTok{\#\#\#\# Model Evaluation Metrics \#\#\#\#}
+\CommentTok{\# Calculate Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE)}
 \NormalTok{mae }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(}\FunctionTok{abs}\NormalTok{(predictions }\SpecialCharTok{{-}}\NormalTok{ analysis\_data\_test}\SpecialCharTok{$}\NormalTok{price\_current))}
 \NormalTok{rmse }\OtherTok{\textless{}{-}} \FunctionTok{sqrt}\NormalTok{(}\FunctionTok{mean}\NormalTok{((predictions }\SpecialCharTok{{-}}\NormalTok{ analysis\_data\_test}\SpecialCharTok{$}\NormalTok{price\_current)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{))}
 
-\NormalTok{evaluation\_metrics }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+\CommentTok{\# Store results in a data frame}
+\NormalTok{evaluation\_metrics }\OtherTok{\textless{}{-}} \FunctionTok{data.table}\NormalTok{(}
   \AttributeTok{Metric =} \FunctionTok{c}\NormalTok{(}\StringTok{"Mean Absolute Error (MAE)"}\NormalTok{, }\StringTok{"Root Mean Squared Error (RMSE)"}\NormalTok{),}
   \AttributeTok{Value =} \FunctionTok{c}\NormalTok{(}\FunctionTok{round}\NormalTok{(mae, }\DecValTok{2}\NormalTok{), }\FunctionTok{round}\NormalTok{(rmse, }\DecValTok{2}\NormalTok{))}
 \NormalTok{)}
 
 \CommentTok{\# Display the results table}
-\FunctionTok{kable}\NormalTok{(evaluation\_metrics, }\AttributeTok{col.names =} \FunctionTok{c}\NormalTok{(}\StringTok{"Evaluation Metric"}\NormalTok{, }\StringTok{"Value"}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{longtable}[]{@{}lr@{}}
-\toprule\noalign{}
-Evaluation Metric & Value \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Mean Absolute Error (MAE) & 6.90 \\
-Root Mean Squared Error (RMSE) & 17.77 \\
-\end{longtable}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{print}\NormalTok{(evaluation\_metrics)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-                          Metric Value
-1      Mean Absolute Error (MAE)  6.90
-2 Root Mean Squared Error (RMSE) 17.77
+                           Metric Value
+                           <char> <num>
+1:      Mean Absolute Error (MAE)  6.74
+2: Root Mean Squared Error (RMSE) 17.98
 \end{verbatim}
 
 Table 1: Model Evaluation Metrics. The table displays the MAE and RMSE
@@ -924,12 +894,6 @@ Canada.
 
 \subsection{Posterior predictive
 check}\label{posterior-predictive-check}
-
-In \textbf{?@fig-ppcheckandposteriorvsprior-1} we implement a posterior
-predictive check. This shows\ldots{}
-
-In \textbf{?@fig-ppcheckandposteriorvsprior-2} we compare the posterior
-with the prior. This shows\ldots{}
 
 \newpage
 
