@@ -126,11 +126,12 @@ In summary, this model helps explain the primary factors of current grocery pric
 
 # Results
 
-The results of our analysis of the Project Hammer dataset explain important findings about pricing trends across major Canadian grocery vendors. By examining factors such as prior pricing (`price_old`), vendor identities (`vendor_name`), and recent price changes (`price_difference`), we assess how these variables affect current prices (`price_current`). The following sections summarize key findings, supported by visualizations that highlight trends and relationships within the data.
+The results of our analysis of the Project Hammer dataset shows significant findings into pricing trends across major Canadian grocery vendors. By examining factors such as prior pricing (`price_old`), vendor identities (`vendor_name`), and recent price changes (`price_difference`), we assess how these variables affect current prices (`price_current`). The following sections summarize key findings, supported by visualizations that highlight trends and relationships within the data.
 
 ## Vendor-Specific Price Trends
 
 We begin by examining average current prices (`price_current`) across different grocery vendors to identify potential pricing variations in the Canadian grocery market.
+
 
 ```{r}
 #| label: fig-avg-curr-price
@@ -161,11 +162,12 @@ vendor_price_plot <- analysis_data %>%
 vendor_price_plot
 
 ```
+@fig-avg-curr-price displays the average current prices across vendors, revealing notable pricing differences. Metro and Galleria, for example, tend to have higher average prices, while No Frills and Walmart are on the lower end. These discrepancies suggest differing market positioning, with some vendors potentially catering to more price-sensitive customers.
 
+**Implications for Consumers**: Budget-conscious consumers might prefer Walmart or No Frills for lower average prices, while those seeking specific product selections or brands might choose Metro or Galleria despite higher prices.
 
 ## Price Difference Analysis
-
-We further analyze `price_difference`, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides insights into recent price adjustments across vendors.
+We further analyze price_difference, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides findings into recent price adjustments across vendors.
 
 ```{r}
 #| label: fig-avg-price-diff
@@ -190,12 +192,13 @@ price_diff_plot <- analysis_data %>%
 price_diff_plot
 
 ```
+@fig-avg-price-diff illustrates the average price differences by vendor. Retailers like Walmart and Galleria exhibit negative average price differences, suggesting a tendency to reduce prices, likely through competitive discounts. On the other hand, Loblaw shows relatively stable or small positive differences, suggesting less frequent or minor price adjustments.
 
+**Competitive Strategy**: Vendors with negative average differences may be aiming to attract customers through regular discounts, while vendors with stable or positive differences might rely on consistent pricing for brand loyalty.
 
 ## Relationship Between Previous and Current Prices
+To understand price consistency and elasticity, we assess the relationship between previous prices (`price_old`) and current prices (`price_current`).
 
-
-We assess the relationship between previous prices (`price_old`) and current prices (`price_current`) to understand price consistency and potential price elasticity across products.
 
 ```{r}
 #| label: fig-past-curr
@@ -218,11 +221,13 @@ price_relationship_plot
 
 
 ```
+@fig-past-curr shows a strong positive relationship between previous prices and current prices. This pattern indicates that higher past prices are generally associated with higher current prices, implying stability in grocery pricing over time.
 
+**Price Elasticity Findings**: The linear trend suggests low price elasticity, where previous prices predict current prices with relative stability. This may reflect supply chain consistency and retailers’ cautious approach to pricing changes.
 
 ## Distribution of Price Differences
-
 To further explore pricing dynamics, we examine the distribution of `price_difference`, capturing both price increases and decreases across the dataset.
+
 
 ```{r}
 #| label: fig-dist-price
@@ -252,34 +257,35 @@ price_difference_hist <- ggplot(filtered_data, aes(x = price_difference)) +
 price_difference_hist
 
 ```
+@fig-dist-price (filtered to remove extreme values), shows that most price changes are small, with values clustered around zero. Both positive and negative price differences are present, indicating a balance between price increases and decreases across vendors.
+
+**Market Stability**: The concentration around zero suggests a generally stable market, with moderate pricing adjustments. While some vendors increase prices, others offer discounts, contributing to a balanced market.
 
 
 # Discussion
 
-## Interpretation of Grocery Pricing Dynamics
-This study investigates the primary factors influencing current grocery prices in Canada by examining the Project Hammer dataset. Our Bayesian regression model reveals that prior prices (`price_old`), vendor identity (`vendor_name`), and recent price differences (`price_difference`) play significant roles in determining current prices. The influence of previous prices indicates price continuity across time, suggesting that grocery items tend to exhibit relatively stable pricing patterns with minor adjustments. Vendor-specific effects highlight the role of retailer pricing strategies, with some vendors maintaining consistently higher or lower prices. These vendor variations may reflect differences in market positioning, operational costs, or competitive strategies, impacting price consistency across the grocery sector.
+## Correlation vs. Causation
+This analysis utilizes Bayesian regression model to identify factors correlated with current grocery prices, including prior prices (`price_old`), vendor identity (`vendor_name`), and recent price differences (`price_difference`). While the model shows that historical prices and vendor-specific effects are strongly associated with current pricing, it’s essential to interpret these relationships cautiously in terms of causation.
 
-Additionally, the presence of both positive and negative values in the `price_difference` variable illustrates the prevalence of both price increases and decreases, underscoring the dynamic nature of grocery pricing in response to external market forces. External factors, such as supply chain disruptions, inflation, and seasonal demand fluctuations, likely contribute to the observed variability. This model highlights the complexity of pricing dynamics and the importance of historical pricing and vendor-specific factors in shaping current grocery prices across major Canadian retailers.
+The correlation between previous and current prices likely reflects price continuity rather than a causal mechanism. For example, stable pricing over time may arise from vendor policies or industry norms rather than from any inherent property of the product or market structure. Similarly, vendor identity correlates with price differences, but this does not imply that being a particular vendor causes higher or lower prices. Instead, vendor-specific prices likely reflect underlying operational costs, competitive positioning, or branding strategies. Caution is warranted in inferring causation, as unobserved factors—such as cost structures or consumer loyalty—may influence both vendor identity and pricing patterns.
 
-## Implications for Competition and Consumer Costs
+The presence of both price increases and decreases (reflected in `price_difference`) further highlights the dynamic nature of grocery pricing. While these changes are correlated with the final prices observed, it would be speculative to conclude that specific price fluctuations directly cause current price levels. External factors like inflation, seasonal demand, and supply chain disruptions may drive these observed correlations, underscoring the need for a cautious interpretation of causality.
 
-The findings from Project Hammer have broader implications for both competition in the grocery sector and consumer expenses. Vendor-specific price differences suggest that some retailers adopt competitive pricing strategies to attract cost-sensitive consumers, while others may leverage brand loyalty or perceived quality to justify higher prices. In this context, price-sensitive consumers may benefit from exploring pricing variations across vendors to find the best deals, while retailers may face pressure to adjust their prices to remain competitive.
+## Missing Data
 
-The stability of historical prices as a predictor of current prices also highlights potential concerns about price rigidity in certain product categories. This rigidity may limit the effectiveness of competition, as vendors might rely on historical price baselines rather than actively adjusting prices in response to market demand. Policymakers interested in promoting competition in the grocery sector could consider encouraging more frequent pricing updates or transparency in pricing strategies, particularly for staple items that heavily impact household budgets.
+The Project Hammer dataset contains some limitations in data coverage, which may impact the completeness and accuracy of our findings. Specifically, the data does not include smaller or regional grocery stores, which may have distinct pricing strategies and could offer lower or more competitive prices in certain areas. The absence of these smaller players may lead to an incomplete picture of the overall grocery market, as price variations across different types of stores are not captured.
 
-## Limitations of Data and Model
+Additionally, missing data on certain product categories or regions within vendors limits the granularity of the analysis. For example, without category-specific data (e.g., dairy, produce, or packaged goods), it’s challenging to examine whether price dynamics vary significantly across product types. This lack of detail may obscure category-level trends, which could be particularly relevant for staple items that heavily influence household spending. Future data collection efforts could focus on capturing a wider range of store types and product details to provide a more representative dataset.
 
-This analysis has several limitations that may impact the accuracy and comprehensiveness of our findings. First, the dataset is limited to major grocery chains, which may not capture price variations across smaller or regional stores that could offer different pricing structures. Additionally, the lack of granular product-level data limits our ability to analyze category-specific trends (e.g., dairy versus produce) or regional differences within the same vendor.
+Finally, missing information on factors like seasonal influences, promotions, or regional economic conditions means that some relevant variables are absent from the model. These factors could help explain variations in grocery pricing, particularly for products sensitive to external factors (e.g., fresh produce affected by seasonality). Addressing these data gaps could significantly improve the model’s ability to capture the full range of influences on grocery prices.
 
-The model’s focus on historical prices, vendor identity, and price differences also excludes potential external factors that may influence pricing, such as seasonal demand, promotions, or supply chain constraints. Including additional variables, such as the frequency of price adjustments or regional economic indicators, could enhance the model’s predictive power and provide a more comprehensive view of grocery pricing dynamics.
+## Sources of Bias
 
-## Future Research Direction
+The Project Hammer dataset and the corresponding analysis may contain several sources of bias that could affect the interpretation of results. One potential source of bias stems from the focus on major grocery chains, which may not accurately represent pricing dynamics across smaller, independent stores. Since major vendors typically have broader operational reach and standardized pricing strategies, the findings may be biased toward the practices of these larger corporations, potentially overestimating price stability or ignoring competitive pricing seen in smaller markets.
 
-Future research could build on this work by incorporating a wider range of variables, including product-specific attributes, seasonal factors, and promotional data, to capture a broader spectrum of influences on grocery prices. Exploring how demographic factors, such as income levels in different regions, correlate with price patterns across vendors could offer insights into the socio-economic impacts of grocery pricing on different communities.
+Another possible bias comes from the data’s retrospective nature, focusing on historical pricing as a predictor of current prices. This approach may inherently favor price continuity and overlook the role of short-term market disruptions, promotions, or external shocks. For instance, a focus on historical prices could understate the impact of sudden events (like supply chain breakdowns or economic crises) that may cause sharp price changes. This form of selection bias could lead to an overly conservative estimate of price volatility in the model.
 
-Increasing the model’s granularity to analyze price dynamics at the regional or product-category level would provide a deeper understanding of how specific items are priced within the same store or across regions. Additionally, expanding the analysis to include other sectors, such as online grocery prices or specialty stores, could provide a more holistic view of the Canadian grocery market.
-
-Incorporating machine learning techniques could also improve the model's adaptability to rapidly changing market conditions, allowing for more nuanced forecasts of pricing trends. This approach could be particularly useful in the face of ongoing challenges such as inflation and supply chain disruptions, offering a valuable tool for policymakers and consumers interested in understanding and mitigating grocery costs in Canada.
+Furthermore, vendor-specific effects could introduce bias if certain vendors follow distinct pricing philosophies, such as premium or discount positioning. If these vendors have unique market positions that attract particular types of consumers, the model may reflect not only price dynamics but also underlying consumer segmentation. This brand-driven bias could distort interpretations, particularly if certain vendors consistently maintain higher or lower prices due to factors outside competitive dynamics (e.g., brand loyalty or perceived product quality).
 
 
 \newpage

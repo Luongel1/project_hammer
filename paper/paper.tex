@@ -66,46 +66,6 @@
 \fi
 \makeatother
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -300,56 +260,9 @@ affordability in a market facing rising cost-of-living pressures.
 
 \subsection{Measurement}\label{measurement}
 
-Some paragraphs about how we go from a phenomena in the world to an
-entry in the dataset.
-
 \subsection{Outcome variables}\label{outcome-variables}
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome
-variable or update the subheading to be singular.
-
-Some of our data is of penguins (Figure~\ref{fig-bills}), from Horst,
-Hill, and Gorman (2020).
-
-\begin{figure}
-
-\centering{
-
-\includegraphics{paper_files/figure-pdf/fig-bills-1.pdf}
-
-}
-
-\caption{\label{fig-bills}Bills of penguins}
-
-\end{figure}%
-
-Talk more about it.
-
-And also planes (Figure~\ref{fig-planes}). (You can change the height
-and width, but don't worry about doing that until you have finished
-every other aspect of the paper - Quarto will try to make it look nice
-and the defaults usually work well once you have enough text.)
-
-\begin{figure}
-
-\centering{
-
-\includegraphics{paper_files/figure-pdf/fig-planes-1.pdf}
-
-}
-
-\caption{\label{fig-planes}Relationship between wing length and width}
-
-\end{figure}%
-
-Talk way more about it.
-
 \subsection{Predictor variables}\label{predictor-variables}
-
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine
-a few into one if they go together naturally.
 
 \section{Model}\label{model}
 
@@ -466,38 +379,22 @@ We begin by examining average current prices (\texttt{price\_current})
 across different grocery vendors to identify potential pricing
 variations in the Canadian grocery market.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\DocumentationTok{\#\#\#\# Read data \#\#\#\#}
-\CommentTok{\# Load the cleaned dataset}
-\NormalTok{analysis\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\StringTok{"C:/Users/eliza/Downloads/hammer{-}3{-}compressed/cleaned\_price\_changes.csv"}\NormalTok{, }\AttributeTok{show\_col\_types =} \ConstantTok{FALSE}\NormalTok{)}
+\begin{figure}
 
-\CommentTok{\# Generate plot for Average Current Price by Vendor}
-\NormalTok{vendor\_price\_plot }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(vendor\_name) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_price\_current =} \FunctionTok{mean}\NormalTok{(price\_current, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(vendor\_name, avg\_price\_current), }\AttributeTok{y =}\NormalTok{ avg\_price\_current)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Average Current Price by Vendor"}\NormalTok{,}
-    \AttributeTok{x =} \StringTok{"Vendor"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Average Current Price (CAD)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
+\centering{
 
-\CommentTok{\# Display the plot}
-\NormalTok{vendor\_price\_plot}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{paper_files/figure-pdf/fig-avg-curr-price-1.pdf}
 
-\includegraphics{paper_files/figure-pdf/unnamed-chunk-4-1.pdf}
+}
 
-Figure 1: Average Current Price by Vendor. This bar plot shows the
-average price of products sold by each grocery vendor in Canadian
-dollars (CAD). Variations in pricing suggest differences in market
-positioning or pricing strategies among vendors, with some retailers
-consistently offering higher or lower prices across product categories.
+\caption{\label{fig-avg-curr-price}Average Current Price by Vendor. This
+bar plot shows the average price of products sold by each grocery vendor
+in Canadian dollars (CAD). Variations in pricing suggest differences in
+market positioning or pricing strategies among vendors, with some
+retailers consistently offering higher or lower prices across product
+categories.}
+
+\end{figure}%
 
 \subsection{Price Difference Analysis}\label{price-difference-analysis}
 
@@ -506,32 +403,22 @@ between the current price (\texttt{price\_current}) and the previous
 price (\texttt{price\_old}). This variable provides insights into recent
 price adjustments across vendors.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Average price difference by vendor}
-\NormalTok{price\_diff\_plot }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{group\_by}\NormalTok{(vendor\_name) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_price\_difference =} \FunctionTok{mean}\NormalTok{(price\_difference, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{reorder}\NormalTok{(vendor\_name, avg\_price\_difference), }\AttributeTok{y =}\NormalTok{ avg\_price\_difference)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"coral"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{coord\_flip}\NormalTok{() }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Average Price Difference by Vendor"}\NormalTok{,}
-    \AttributeTok{x =} \StringTok{"Vendor"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Average Price Difference (CAD)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\NormalTok{price\_diff\_plot}
-\end{Highlighting}
-\end{Shaded}
+\begin{figure}
 
-\includegraphics{paper_files/figure-pdf/unnamed-chunk-5-1.pdf}
+\centering{
 
-Figure 2: Average Price Difference by Vendor. This bar plot shows the
-average price change per vendor, highlighting retailers with the most
-significant pricing adjustments. Positive differences suggest recent
-price increases, while negative differences indicate reductions,
-reflecting possible discounting or competitive pricing strategies.
+\includegraphics{paper_files/figure-pdf/fig-avg-price-diff-1.pdf}
+
+}
+
+\caption{\label{fig-avg-price-diff}Average Price Difference by Vendor.
+This bar plot shows the average price change per vendor, highlighting
+retailers with the most significant pricing adjustments. Positive
+differences suggest recent price increases, while negative differences
+indicate reductions, reflecting possible discounting or competitive
+pricing strategies.}
+
+\end{figure}%
 
 \subsection{Relationship Between Previous and Current
 Prices}\label{relationship-between-previous-and-current-prices}
@@ -540,33 +427,22 @@ We assess the relationship between previous prices (\texttt{price\_old})
 and current prices (\texttt{price\_current}) to understand price
 consistency and potential price elasticity across products.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Scatter plot of previous price vs. current price}
-\NormalTok{price\_relationship\_plot }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(analysis\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ price\_old, }\AttributeTok{y =}\NormalTok{ price\_current)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.4}\NormalTok{, }\AttributeTok{color =} \StringTok{"blue"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Relationship Between Previous and Current Prices"}\NormalTok{,}
-    \AttributeTok{x =} \StringTok{"Previous Price (CAD)"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Current Price (CAD)"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\NormalTok{price\_relationship\_plot}
-\end{Highlighting}
-\end{Shaded}
+\begin{figure}
 
-\begin{verbatim}
-`geom_smooth()` using formula = 'y ~ x'
-\end{verbatim}
+\centering{
 
-\includegraphics{paper_files/figure-pdf/unnamed-chunk-6-1.pdf}
+\includegraphics{paper_files/figure-pdf/fig-past-curr-1.pdf}
 
-Figure 3: Relationship Between Previous and Current Prices. This scatter
-plot with a linear regression line shows the correlation between
-previous and current prices. A positive relationship would indicate that
-higher previous prices predict higher current prices, implying potential
-price stability or gradual price changes in the grocery market.
+}
+
+\caption{\label{fig-past-curr}Relationship Between Previous and Current
+Prices. This scatter plot with a linear regression line shows the
+correlation between previous and current prices. A positive relationship
+would indicate that higher previous prices predict higher current
+prices, implying potential price stability or gradual price changes in
+the grocery market.}
+
+\end{figure}%
 
 \subsection{Distribution of Price
 Differences}\label{distribution-of-price-differences}
@@ -575,40 +451,22 @@ To further explore pricing dynamics, we examine the distribution of
 \texttt{price\_difference}, capturing both price increases and decreases
 across the dataset.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Calculate mean and standard deviation of price\_difference}
-\NormalTok{mean\_diff }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(analysis\_data}\SpecialCharTok{$}\NormalTok{price\_difference, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
-\NormalTok{sd\_diff }\OtherTok{\textless{}{-}} \FunctionTok{sd}\NormalTok{(analysis\_data}\SpecialCharTok{$}\NormalTok{price\_difference, }\AttributeTok{na.rm =} \ConstantTok{TRUE}\NormalTok{)}
+\begin{figure}
 
-\CommentTok{\# Filter out extreme values beyond 3 standard deviations}
-\NormalTok{filtered\_data }\OtherTok{\textless{}{-}}\NormalTok{ analysis\_data }\SpecialCharTok{\%\textgreater{}\%}
-  \FunctionTok{filter}\NormalTok{(price\_difference }\SpecialCharTok{\textgreater{}=}\NormalTok{ (mean\_diff }\SpecialCharTok{{-}} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ sd\_diff),}
-\NormalTok{         price\_difference }\SpecialCharTok{\textless{}=}\NormalTok{ (mean\_diff }\SpecialCharTok{+} \DecValTok{3} \SpecialCharTok{*}\NormalTok{ sd\_diff))}
+\centering{
 
-\CommentTok{\# Plot histogram with filtered data}
-\NormalTok{price\_difference\_hist }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(filtered\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ price\_difference)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_histogram}\NormalTok{(}\AttributeTok{bins =} \DecValTok{30}\NormalTok{, }\AttributeTok{fill =} \StringTok{"lightgreen"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
-  \FunctionTok{labs}\NormalTok{(}
-    \AttributeTok{title =} \StringTok{"Distribution of Price Differences (Filtered)"}\NormalTok{,}
-    \AttributeTok{x =} \StringTok{"Price Difference (CAD)"}\NormalTok{,}
-    \AttributeTok{y =} \StringTok{"Frequency"}
-\NormalTok{  ) }\SpecialCharTok{+}
-  \FunctionTok{theme\_minimal}\NormalTok{()}
-\NormalTok{price\_difference\_hist}
-\end{Highlighting}
-\end{Shaded}
+\includegraphics{paper_files/figure-pdf/fig-dist-price-1.pdf}
 
-\includegraphics{paper_files/figure-pdf/unnamed-chunk-7-1.pdf}
+}
 
-Figure 4: Distribution of Price Differences (Filtered). This histogram
-illustrates the frequency of price changes across products, with extreme
-values beyond three standard deviations removed for clarity. The
-concentration around zero suggests that small price adjustments are most
-common, while the presence of both negative and positive values
-indicates instances of both price increases and decreases. This
-distribution provides insight into the stability and variability of
-pricing across vendors.
+\caption{\label{fig-dist-price}Relationship Between Previous and Current
+Prices. This scatter plot with a linear regression line shows the
+correlation between previous and current prices. A positive relationship
+would indicate that higher previous prices predict higher current
+prices, implying potential price stability or gradual price changes in
+the grocery market.}
+
+\end{figure}%
 
 \section{Discussion}\label{discussion}
 
@@ -731,11 +589,6 @@ check}\label{posterior-predictive-check}
 Goodrich, Ben, Jonah Gabry, Imad Ali, and Sam Brilleman. 2022.
 {``{rstanarm: {Bayesian} applied regression modeling via {Stan}}.''}
 \url{https://mc-stan.org/rstanarm/}.
-
-\bibitem[\citeproctext]{ref-palmerpenguins}
-Horst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020.
-\emph{{palmerpenguins: Palmer Archipelago (Antarctica) penguin data}}.
-\url{https://doi.org/10.5281/zenodo.3960218}.
 
 \bibitem[\citeproctext]{ref-citeR}
 R Core Team. 2023. \emph{{R: A Language and Environment for Statistical
