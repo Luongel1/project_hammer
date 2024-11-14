@@ -1,13 +1,13 @@
 ---
-title: "My title"
-subtitle: "My subtitle if needed"
+title: "Analyzing changes in Canadian grocery prices"
+# subtitle: "My subtitle if needed"
 author: 
-  - First author
-  - Another author
+  - Abdullah Motasim
+  - Elizabeth Luong
 thanks: "Code and data are available at: [https://github.com/RohanAlexander/starter_folder](https://github.com/RohanAlexander/starter_folder)."
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "This paper investigates grocery pricing trends across Canada using SQL analysis on the 'Project Hammer' dataset, which contains detailed vendor-specific price data. Focusing on statistical relationships and potential pricing biases, we explore factors driving price variations across different regions and vendors. A Bayesian regression model is applied to understand correlations, accounting for limitations and highlighting areas where causation cannot be assumed. Findings reveal competitive dynamics within Canadian grocery markets, implications for consumers, and recommendations for future research into market and pricing behavior across vendors."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -31,20 +31,11 @@ library(data.table)
 
 # Introduction
 
-Overview paragraph
+The rising cost of groceries in Canada has drawn significant public attention, impacting consumer budgets and prompting regulatory interest. While inflation and supply disruptions are often cited as contributors, the specifics of how major Canadian grocery vendors set and adjust prices remain underexplored. This study addresses this gap by analyzing data from Project Hammer, a dataset that tracks grocery prices across vendors including Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Through examining these data, we aim to uncover factors driving grocery price dynamics and assess the degree to which vendor-specific pricing may reflect competitive or non-competitive practices.
 
-Estimand paragraph
+Using a Bayesian regression model, our analysis identifies prior prices, vendor identity, and recent price changes as significant determinants of current grocery prices. The consistency in historical pricing indicates relative stability across product categories, while unique vendor patterns suggest differing market strategies, likely shaped by operational costs and customer demographics.
 
-Results paragraph
-
-Why it matters paragraph
-
-Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
-
-
-
-
-
+Our findings have practical implications for both consumers and policymakers: consumers can use vendor-specific insights to make informed purchasing decisions, while policymakers can leverage this analysis to support regulatory strategies that promote competition and price transparency. The paper is structured as follows: Section 2 reviews the dataset, Section 3 describes the Bayesian model, Section 4 presents the results, and Section 5 discusses broader implications and future research directions.
 
 # Data {#sec-data}
 
@@ -59,64 +50,11 @@ By narrowing the scope to recent data, Project Hammer's dataset captures real-ti
 
 ## Measurement
 	
-Some paragraphs about how we go from a phenomena in the world to an entry in the dataset.
+Each entry in the dataset represents a captured moment in time where prices, products, and vendor information were recorded. The measurement process involved regular data collection from the online pricing systems of the following prominent grocery chains: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Each entry captures variables such as:  product name, vendor name, and both current and previous prices. The Project Hammer initiative leveraged web scraping technology to ensure a consistent and standardized entry format for all retailers, documenting prices at regular intervals. This approach ensures that price points reflect real-time data rather than historical estimates or annual averages, providing a close approximation of consumer experiences. The data set records the price of each grocery item in Canadian dollars, including items from broad categories such as fresh produce, dairy, pantry goods, and household essentials, to present a holistic view of grocery costs.
 
-## Outcome variables
+<!-- Each row entry in Project Hammer represents a unique product listing per vendor, featuring five main columns: product_name, vendor_name, price_current, price_old, and price_difference. The price_difference column is particularly useful for observing temporal price changes, while the price_old variable provides context for price continuity or volatility. The structured approach used in capturing this data allows us to transform general observations of grocery pricing trends into quantifiable entries that can be statistically analyzed to reveal underlying patterns in pricing strategies across different vendors and products. -->
 
-Add graphs, tables and text. Use sub-sub-headings for each outcome variable or update the subheading to be singular.
-
-
-
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
-
-```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
-#| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
-#| message: false
-
-analysis_data <- read_csv(here::here("data/02-analysis_data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
-```
-
-Talk way more about it. 
-
-## Predictor variables
-
-Add graphs, tables and text.
-
-Use sub-sub-headings for each outcome variable and feel free to combine a few into one if they go together naturally.
-
-
-
-
-
-
+Essentially, the real world phenomenon we observed was the website of each vendor with a listing of their products for that week, we turned this phenomenon into an entry within out data set with the use of a screen-scrape of the website UI. This means a HTTP request to load the page was sent to the desired vendors website on a specific day, than the returned HTML was parsed to extract specific content such as text, images, prices, etc. These captured features were than utilized to fill out the corresponding columns within the data set.
 
 
 # Model
@@ -177,26 +115,32 @@ The results of our analysis of the Project Hammer dataset explain important find
 We begin by examining average current prices (`price_current`) across different grocery vendors to identify potential pricing variations in the Canadian grocery market.
 
 ```{r}
+#| label: fig1
+#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| echo: false
+#| warning: false
+#| message: false
+
 #### Read data ####
 # Load the cleaned dataset
-analysis_data <- read_csv("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv", show_col_types = FALSE)
-
-# Generate plot for Average Current Price by Vendor
-vendor_price_plot <- analysis_data %>%
-  group_by(vendor_name) %>%
-  summarize(avg_price_current = mean(price_current, na.rm = TRUE)) %>%
-  ggplot(aes(x = reorder(vendor_name, avg_price_current), y = avg_price_current)) +
-  geom_bar(stat = "identity", fill = "skyblue") +
-  coord_flip() +
-  labs(
-    title = "Average Current Price by Vendor",
-    x = "Vendor",
-    y = "Average Current Price (CAD)"
-  ) +
-  theme_minimal()
-
-# Display the plot
-vendor_price_plot
+# analysis_data <- read_csv("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv", show_col_types = FALSE)
+# 
+# # Generate plot for Average Current Price by Vendor
+# vendor_price_plot <- analysis_data %>%
+#   group_by(vendor_name) %>%
+#   summarize(avg_price_current = mean(price_current, na.rm = TRUE)) %>%
+#   ggplot(aes(x = reorder(vendor_name, avg_price_current), y = avg_price_current)) +
+#   geom_bar(stat = "identity", fill = "skyblue") +
+#   coord_flip() +
+#   labs(
+#     title = "Average Current Price by Vendor",
+#     x = "Vendor",
+#     y = "Average Current Price (CAD)"
+#   ) +
+#   theme_minimal()
+# 
+# # Display the plot
+# vendor_price_plot
 
 ```
 
@@ -207,20 +151,27 @@ Figure 1: Average Current Price by Vendor. This bar plot shows the average price
 We further analyze `price_difference`, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides insights into recent price adjustments across vendors.
 
 ```{r}
+#| label: fig2
+#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| echo: false
+#| warning: false
+#| message: false
+
+
 # Average price difference by vendor
-price_diff_plot <- analysis_data %>%
-  group_by(vendor_name) %>%
-  summarize(avg_price_difference = mean(price_difference, na.rm = TRUE)) %>%
-  ggplot(aes(x = reorder(vendor_name, avg_price_difference), y = avg_price_difference)) +
-  geom_bar(stat = "identity", fill = "coral") +
-  coord_flip() +
-  labs(
-    title = "Average Price Difference by Vendor",
-    x = "Vendor",
-    y = "Average Price Difference (CAD)"
-  ) +
-  theme_minimal()
-price_diff_plot
+# price_diff_plot <- analysis_data %>%
+#   group_by(vendor_name) %>%
+#   summarize(avg_price_difference = mean(price_difference, na.rm = TRUE)) %>%
+#   ggplot(aes(x = reorder(vendor_name, avg_price_difference), y = avg_price_difference)) +
+#   geom_bar(stat = "identity", fill = "coral") +
+#   coord_flip() +
+#   labs(
+#     title = "Average Price Difference by Vendor",
+#     x = "Vendor",
+#     y = "Average Price Difference (CAD)"
+#   ) +
+#   theme_minimal()
+# price_diff_plot
 
 ```
 
@@ -232,17 +183,24 @@ Figure 2: Average Price Difference by Vendor. This bar plot shows the average pr
 We assess the relationship between previous prices (`price_old`) and current prices (`price_current`) to understand price consistency and potential price elasticity across products.
 
 ```{r}
+#| label: fig3
+#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| echo: false
+#| warning: false
+#| message: false
+
+
 # Scatter plot of previous price vs. current price
-price_relationship_plot <- ggplot(analysis_data, aes(x = price_old, y = price_current)) +
-  geom_point(alpha = 0.4, color = "blue") +
-  geom_smooth(method = "lm", color = "red") +
-  labs(
-    title = "Relationship Between Previous and Current Prices",
-    x = "Previous Price (CAD)",
-    y = "Current Price (CAD)"
-  ) +
-  theme_minimal()
-price_relationship_plot
+# price_relationship_plot <- ggplot(analysis_data, aes(x = price_old, y = price_current)) +
+#   geom_point(alpha = 0.4, color = "blue") +
+#   geom_smooth(method = "lm", color = "red") +
+#   labs(
+#     title = "Relationship Between Previous and Current Prices",
+#     x = "Previous Price (CAD)",
+#     y = "Current Price (CAD)"
+#   ) +
+#   theme_minimal()
+# price_relationship_plot
 
 
 ```
@@ -253,25 +211,32 @@ Figure 3: Relationship Between Previous and Current Prices. This scatter plot wi
 To further explore pricing dynamics, we examine the distribution of `price_difference`, capturing both price increases and decreases across the dataset.
 
 ```{r}
+#| label: fig4
+#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| echo: false
+#| warning: false
+#| message: false
+
+
 # Calculate mean and standard deviation of price_difference
-mean_diff <- mean(analysis_data$price_difference, na.rm = TRUE)
-sd_diff <- sd(analysis_data$price_difference, na.rm = TRUE)
-
-# Filter out extreme values beyond 3 standard deviations
-filtered_data <- analysis_data %>%
-  filter(price_difference >= (mean_diff - 3 * sd_diff),
-         price_difference <= (mean_diff + 3 * sd_diff))
-
-# Plot histogram with filtered data
-price_difference_hist <- ggplot(filtered_data, aes(x = price_difference)) +
-  geom_histogram(bins = 30, fill = "lightgreen", color = "black") +
-  labs(
-    title = "Distribution of Price Differences (Filtered)",
-    x = "Price Difference (CAD)",
-    y = "Frequency"
-  ) +
-  theme_minimal()
-price_difference_hist
+# mean_diff <- mean(analysis_data$price_difference, na.rm = TRUE)
+# sd_diff <- sd(analysis_data$price_difference, na.rm = TRUE)
+# 
+# # Filter out extreme values beyond 3 standard deviations
+# filtered_data <- analysis_data %>%
+#   filter(price_difference >= (mean_diff - 3 * sd_diff),
+#          price_difference <= (mean_diff + 3 * sd_diff))
+# 
+# # Plot histogram with filtered data
+# price_difference_hist <- ggplot(filtered_data, aes(x = price_difference)) +
+#   geom_histogram(bins = 30, fill = "lightgreen", color = "black") +
+#   labs(
+#     title = "Distribution of Price Differences (Filtered)",
+#     x = "Price Difference (CAD)",
+#     y = "Frequency"
+#   ) +
+#   theme_minimal()
+# price_difference_hist
 
 ```
 
@@ -281,64 +246,70 @@ Figure 4: Distribution of Price Differences (Filtered). This histogram illustrat
 To evaluate our model’s performance, we assess the predictive accuracy of the Bayesian linear regression model on the test data. The model’s Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) provide insights into the model’s ability to predict `price_current` based on `price_old`, `vendor_name`, and `price_difference`.
 
 ```{r}
+#| label: fig5
+#| fig-cap: Each boxplot shows the distribution of numeric reliability grades for the top 5 pollsters, with individual poll grades represented by jittered points.
+#| echo: false
+#| warning: false
+#| message: false
+
 
 #### Read Data ####
 # Load only a sample of the data to reduce memory usage (e.g., 10% of the dataset)
-set.seed(853)
-
-analysis_data <- fread("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv")
-analysis_data <- analysis_data[sample(.N, size = 0.1 * .N)]
-
-# Split data into training and testing sets
-train_indices <- sample(seq_len(nrow(analysis_data)), size = 0.8 * nrow(analysis_data))
-analysis_data_train <- analysis_data[train_indices]
-analysis_data_test <- analysis_data[-train_indices]
-
-#### Model Data ####
-# Define a Bayesian regression model to predict `price_current` with fewer iterations and lighter priors
-
-model <- stan_glm(
-  formula = price_current ~ price_old + as.factor(vendor_name) + price_difference,
-  data = analysis_data_train,
-  family = gaussian(),
-  prior = normal(location = 0, scale = 5, autoscale = TRUE),      # Slightly broader prior
-  prior_intercept = normal(location = 0, scale = 5, autoscale = TRUE),
-  prior_aux = exponential(rate = 0.5, autoscale = TRUE),          # Less informative prior
-  iter = 500,                                                     # Reduce iterations
-  chains = 2,                                                     # Fewer chains for faster computation
-  seed = 853
-)
-
-#### Predict in Chunks ####
-# Define chunk size based on available memory
-chunk_size <- 20000  # Adjusted smaller chunk size for efficiency
-num_chunks <- ceiling(nrow(analysis_data_test) / chunk_size)
-
-# Initialize a vector to store predictions
-predictions <- numeric(nrow(analysis_data_test))
-
-# Loop through each chunk to generate predictions
-for (i in seq_len(num_chunks)) {
-  start <- ((i - 1) * chunk_size) + 1
-  end <- min(i * chunk_size, nrow(analysis_data_test))
-  
-  # Generate predictions for the current chunk
-  predictions[start:end] <- predict(model, newdata = analysis_data_test[start:end, ])
-}
-
-#### Model Evaluation Metrics ####
-# Calculate Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE)
-mae <- mean(abs(predictions - analysis_data_test$price_current))
-rmse <- sqrt(mean((predictions - analysis_data_test$price_current)^2))
-
-# Store results in a data frame
-evaluation_metrics <- data.table(
-  Metric = c("Mean Absolute Error (MAE)", "Root Mean Squared Error (RMSE)"),
-  Value = c(round(mae, 2), round(rmse, 2))
-)
-
-# Display the results table
-print(evaluation_metrics)
+# set.seed(853)
+# 
+# analysis_data <- fread("C:/Users/eliza/Downloads/hammer-3-compressed/cleaned_price_changes.csv")
+# analysis_data <- analysis_data[sample(.N, size = 0.1 * .N)]
+# 
+# # Split data into training and testing sets
+# train_indices <- sample(seq_len(nrow(analysis_data)), size = 0.8 * nrow(analysis_data))
+# analysis_data_train <- analysis_data[train_indices]
+# analysis_data_test <- analysis_data[-train_indices]
+# 
+# #### Model Data ####
+# # Define a Bayesian regression model to predict `price_current` with fewer iterations and lighter priors
+# 
+# model <- stan_glm(
+#   formula = price_current ~ price_old + as.factor(vendor_name) + price_difference,
+#   data = analysis_data_train,
+#   family = gaussian(),
+#   prior = normal(location = 0, scale = 5, autoscale = TRUE),      # Slightly broader prior
+#   prior_intercept = normal(location = 0, scale = 5, autoscale = TRUE),
+#   prior_aux = exponential(rate = 0.5, autoscale = TRUE),          # Less informative prior
+#   iter = 500,                                                     # Reduce iterations
+#   chains = 2,                                                     # Fewer chains for faster computation
+#   seed = 853
+# )
+# 
+# #### Predict in Chunks ####
+# # Define chunk size based on available memory
+# chunk_size <- 20000  # Adjusted smaller chunk size for efficiency
+# num_chunks <- ceiling(nrow(analysis_data_test) / chunk_size)
+# 
+# # Initialize a vector to store predictions
+# predictions <- numeric(nrow(analysis_data_test))
+# 
+# # Loop through each chunk to generate predictions
+# for (i in seq_len(num_chunks)) {
+#   start <- ((i - 1) * chunk_size) + 1
+#   end <- min(i * chunk_size, nrow(analysis_data_test))
+#   
+#   # Generate predictions for the current chunk
+#   predictions[start:end] <- predict(model, newdata = analysis_data_test[start:end, ])
+# }
+# 
+# #### Model Evaluation Metrics ####
+# # Calculate Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE)
+# mae <- mean(abs(predictions - analysis_data_test$price_current))
+# rmse <- sqrt(mean((predictions - analysis_data_test$price_current)^2))
+# 
+# # Store results in a data frame
+# evaluation_metrics <- data.table(
+#   Metric = c("Mean Absolute Error (MAE)", "Root Mean Squared Error (RMSE)"),
+#   Value = c(round(mae, 2), round(rmse, 2))
+# )
+# 
+# # Display the results table
+# print(evaluation_metrics)
 
 
 ```
@@ -381,16 +352,6 @@ Incorporating machine learning techniques could also improve the model's adaptab
 \appendix
 
 # Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-
-
 
 \newpage
 
