@@ -21,92 +21,86 @@ bibliography: references.bib
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
-# library(knitr)
-# library(rstanarm)
-# library(arrow)
-# library(data.table)
 library(here)
 
 analysis_data <- read_csv(here("data/02-analysis_data/cleaned_price_changes.csv"), show_col_types = FALSE)
 ```
 
-
 # Introduction
 
 The rising cost of groceries in Canada has drawn significant public attention, impacting consumer budgets and prompting regulatory interest. While inflation and supply disruptions are often cited as contributors, the specifics of how major Canadian grocery vendors set and adjust prices remain underexplored. This study addresses this gap by analyzing data from Project Hammer, a dataset that tracks grocery prices across vendors including Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Through examining these data, we aim to uncover factors driving grocery price dynamics and assess the degree to which vendor-specific pricing may reflect competitive or non-competitive practices.
 
-Using a Bayesian regression model, our analysis identifies prior prices, vendor identity, and recent price changes as significant determinants of current grocery prices. The consistency in historical pricing indicates relative stability across product categories, while unique vendor patterns suggest differing market strategies, likely shaped by operational costs and customer demographics. Our findings have practical implications for both consumers and policymakers: consumers can use vendor-specific insights to make informed purchasing decisions, while policymakers can leverage this analysis to support regulatory strategies that promote competition and price transparency. 
+Using a Bayesian regression model, our analysis identifies prior prices, vendor identity, and recent price changes as significant determinants of current grocery prices. The consistency in historical pricing indicates relative stability across product categories, while unique vendor patterns suggest differing market strategies, likely shaped by operational costs and customer demographics. Our findings have practical implications for both consumers and policymakers: consumers can use vendor-specific insights to make informed purchasing decisions, while policymakers can leverage this analysis to support regulatory strategies that promote competition and price transparency.
 
-The paper is structured as follows: @sec-data discusses the data types included in the raw data, the cleaning process for the data, and the reason for selecting the dataset we did. @sec-model discusses model specification and justification for utilizing a Bayesian linear regression model. @sec-results presents the trends and correlations between different variables utilizing tabular and graphical means. @sec-discussion discusses the results of @sec-results going into detail on what the simulation results can tell us about grocery prices in Canada as well as discussing missing data and sources of bias. 
+The paper is structured as follows: @sec-data discusses the data types included in the raw data, the cleaning process for the data, and the reason for selecting the dataset we did. @sec-model discusses model specification and justification for utilizing a Bayesian linear regression model. @sec-results presents the trends and correlations between different variables utilizing tabular and graphical means. @sec-discussion discusses the results of @sec-results going into detail on what the simulation results can tell us about grocery prices in Canada as well as discussing missing data and sources of bias.
 
 # Data {#sec-data}
 
 ## Overview
 
-For this study, we utilize data from Project Hammer, a Canadian initiative designed to monitor grocery prices across major retailers in Canada. The Project Hammer dataset was collected from eight prominent Canadian grocery vendors—Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods—between February 28, 2024, and the latest available data load in the database [@hammer]. This dataset enables us to investigate price fluctuations, identify pricing trends, and explore potential competitive or collusive patterns within the Canadian grocery sector.
-Project Hammer aims to support regulatory efforts by providing data on price transparency, making it suitable for academic research and potential legal analysis. Following data processing and cleaning procedures outlined in Section 3.2, the dataset was structured to allow an analysis of historical price changes and vendor-specific price patterns.
-The dataset contains 1,996,969 rows and 5 columns, with variables capturing product (product name), vendor_name (name of the grocery retailer), price_current (current product price at the time of recording), price_old (previous recorded price for the product), and price_difference (difference between the current and old prices). Price data is recorded in Canadian dollars and captures a broad range of grocery items from various categories, including fresh produce, dairy, pantry staples, and household items.
-To ensure the quality and consistency of the data, we focused on removing missing values and imputing outlier prices when necessary. For this analysis, we excluded entries with extreme price fluctuations beyond three standard deviations, as these could represent temporary discounts or data recording anomalies. This cleaning process provides a balanced and accurate reflection of grocery pricing, allowing for robust statistical analysis on vendor-specific trends and average price comparisons across product types.
-By narrowing the scope to recent data, Project Hammer's dataset captures real-time fluctuations in grocery pricing, providing timely insights into potential market dynamics and consumer price impacts. The analysis allows for future investigation of temporal price trends, vendor-based price differences, and, more broadly, consumer affordability in a market facing rising cost-of-living pressures.
+For this study, we utilize data from Project Hammer, a Canadian initiative designed to monitor grocery prices across major retailers in Canada. The Project Hammer dataset was collected from eight prominent Canadian grocery vendors—Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods—between February 28, 2024, and the latest available data can be found on the project hammer website [@hammer]. This dataset enables us to investigate price fluctuations, identify pricing trends, and explore potential competitive or collusive patterns within the Canadian grocery sector.
 
+Project Hammer aims to support regulatory efforts by providing data on price transparency, making it suitable for academic research and potential legal analysis. Following data processing and cleaning procedures outlined in Section 3.2, the dataset was structured to allow an analysis of historical price changes and vendor-specific price patterns.
+
+The dataset contains 1,996,969 rows and 5 columns, with variables capturing product (product name), vendor_name (name of the grocery retailer), price_current (current product price at the time of recording), price_old (previous recorded price for the product), and price_difference (difference between the current and old prices). Price data is recorded in Canadian dollars and captures a broad range of grocery items from various categories, including fresh produce, dairy, pantry staples, and household items.
+
+To ensure the quality and consistency of the data, we focused on removing missing values and imputing outlier prices when necessary. For this analysis, we excluded entries with extreme price fluctuations beyond three standard deviations, as these could represent temporary discounts or data recording anomalies. This cleaning process provides a balanced and accurate reflection of grocery pricing, allowing for robust statistical analysis on vendor-specific trends and average price comparisons across product types.
+
+By narrowing the scope to recent data, Project Hammer's dataset captures real-time fluctuations in grocery pricing, providing timely insights into potential market dynamics and consumer price impacts. The analysis allows for future investigation of temporal price trends, vendor-based price differences, and, more broadly, consumer affordability in a market facing rising cost-of-living pressures.
 
 ## Measurement
 
-Each entry in the dataset represents a captured moment in time where prices, products, and vendor information were recorded. The measurement process involved regular data collection from the online pricing systems of the following prominent grocery chains: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Each entry captures variables such as:  product name, vendor name, and both current and previous prices. The Project Hammer initiative leveraged web scraping technology to ensure a consistent and standardized entry format for all retailers, documenting prices at regular intervals. This approach ensures that price points reflect real-time data rather than historical estimates or annual averages, providing a close approximation of consumer experiences. The dataset records the price of each grocery item in Canadian dollars, including items from broad categories such as fresh produce, dairy, pantry goods, and household essentials, to present a holistic view of grocery costs.
+Each entry in the dataset represents a captured moment in time where prices, products, and vendor information were recorded. The measurement process involved regular data collection from the online pricing systems of the following prominent grocery chains: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart, and Save-On-Foods. Each entry captures variables such as: product name, vendor name, and both current and previous prices. The Project Hammer initiative leveraged web scraping technology to ensure a consistent and standardized entry format for all retailers, documenting prices at regular intervals. This approach ensures that price points reflect real-time data rather than historical estimates or annual averages, providing a close approximation of consumer experiences. The dataset records the price of each grocery item in Canadian dollars, including items from broad categories such as fresh produce, dairy, pantry goods, and household essentials, to present a holistic view of grocery costs.
 
 <!-- Each row entry in Project Hammer represents a unique product listing per vendor, featuring five main columns: product_name, vendor_name, price_current, price_old, and price_difference. The price_difference column is particularly useful for observing temporal price changes, while the price_old variable provides context for price continuity or volatility. The structured approach used in capturing this data allows us to transform general observations of grocery pricing trends into quantifiable entries that can be statistically analyzed to reveal underlying patterns in pricing strategies across different vendors and products. -->
 
 Essentially, the real world phenomenon we observed was the website of each vendor with a listing of their products for that week, we turned this phenomenon into an entry within out dataset with the use of a screen-scrape of the website UI. This means a HTTP request to load the page was sent to the desired vendors website on a specific day, than the returned HTML was parsed to extract specific content such as text, images, prices, etc. These captured features were than utilized to fill out the corresponding columns within the dataset.
 
-
 # Model {#sec-model}
 
-Our modeling approach seeks to explore and quantify the relationship between previous grocery prices, vendor identities, and price differences in the current prices observed within Canadian grocery stores. This analysis employs a Bayesian linear regression model implemented via the `stan
-_glm` function in the `rstanarm` package to examine how factors such as historical prices, vendor differences, and observed price changes impact current prices for various grocery items.
+Our modeling approach seeks to explore and quantify the relationship between previous grocery prices, vendor identities, and price differences in the current prices observed within Canadian grocery stores. This analysis employs a Bayesian linear regression model implemented via the `stan _glm` function in the `rstanarm` package to examine how factors such as historical prices, vendor differences, and observed price changes impact current prices for various grocery items.
 
 In this model, `price_current` serves as the response variable, while `price_old`, `vendor_name`, and `price_difference` act as predictor variables. The linear regression model assumes a Gaussian distribution for the response variable `price_current`, allowing for a straightforward interpretation of the estimated parameters.
-
 
 ## Model set-up
 
 The model includes the following predictor variables:
 
-- Previous Price (`price_old`): The price of the product in a previous time period.
+-   Previous Price (`price_old`): The price of the product in a previous time period.
 
-- Vendor (`vendor_name`): A categorical variable representing the grocery store chain selling the product, capturing vendor-specific pricing differences.
+-   Vendor (`vendor_name`): A categorical variable representing the grocery store chain selling the product, capturing vendor-specific pricing differences.
 
-- Price Difference (`price_difference`): The difference between the current and previous price, which may indicate market or vendor-specific pricing adjustments.
+-   Price Difference (`price_difference`): The difference between the current and previous price, which may indicate market or vendor-specific pricing adjustments.
 
 The model can be represented mathematically as follows:
 
+```{=tex}
 \begin{align*}
     y_i \mid \mu_i, \sigma &\sim \text{Normal}(\mu_i, \sigma) \\
     \mu_i &= \beta_0 + \beta_1 \cdot \text{Previous Price}_i + \beta_2 \cdot \text{Vendor}_i + \beta_3 \cdot \text{Price Difference}_i \\
     \epsilon_i &\sim \text{Normal}(0, \sigma^2)
 \end{align*}
-
+```
 \textbf{Where:}
+
+```{=tex}
 \begin{itemize}
     \item $\beta_0$ is the intercept term, representing the baseline estimate of $price_{current}$
     \item $\beta_1$, $\beta_2$, and $\beta_3$ are the coefficients representing the effects of $price_{old}$, $vendor_{name}$ and $price_{difference}$ on $price_{current}$.
     \item $\sigma^2$represents the variance of the error term, capturing unexplained variability in current prices.
 \end{itemize}
-
-The model is executed in \texttt{R} [@citeR] using the \texttt{rstanarm} package [@rstanarm],  with priors set to regularize the estimates and prevent overfitting. Specifically, we use a normal prior for the coefficients, centered at zero with moderate variance, to ensure stable estimates without overly restrictive assumptions.
-
+```
+The model is executed in \texttt{R} [@citeR] using the \texttt{rstanarm} package [@rstanarm], with priors set to regularize the estimates and prevent overfitting. Specifically, we use a normal prior for the coefficients, centered at zero with moderate variance, to ensure stable estimates without overly restrictive assumptions.
 
 ### Model justification
 
 The selection of a linear regression model for this analysis is based on the continuous nature of `price_current`, which allows us to quantify how previous pricing, vendor, and price changes influence current pricing. Existing economic theories suggest that previous prices and historical pricing patterns are often predictive of current pricing, especially in competitive retail markets where price sensitivity and vendor-specific strategies play significant roles. The inclusion of `price_old` as a predictor aligns with time-series economic models where past data points inform future values.
-
 
 Additionally, vendor differences, represented by `vendor_name`, capture potential competitive dynamics in the Canadian grocery market. Vendors may adopt distinct pricing strategies or respond differently to market conditions, and the inclusion of this categorical variable enables an analysis of these patterns across various major grocery chains. The `price_difference` variable, which represents recent price changes, provides an understanding of market adjustments and reflects fluctuations potentially influenced by external factors, such as supply chain constraints or inflation.
 
 The Bayesian approach was selected for its flexibility in incorporating prior information and its robustness in handling uncertainty within small or moderate sample sizes. Furthermore, Bayesian methods allow us to capture the posterior distributions of the parameters, which can be used to evaluate the strength and credibility of each predictor's effect on current prices. This approach also aligns with the objectives of Project Hammer by facilitating a transparent and probabilistically rigorous analysis of grocery pricing trends.
 
 In summary, this model helps explain the primary factors of current grocery prices in Canadian stores, accounting for both historical prices and vendor effects. By utilizing Bayesian framework, this analysis provides a clear quantification of the influence of each predictor while allowing for robust estimation and interpretability in the context of economic and competitive pricing strategies.
-
-
 
 # Results {#sec-results}
 
@@ -142,7 +136,6 @@ vendor_price_plot
 
 ```
 
-
 ## Price Difference Analysis
 
 We further analyze `price_difference`, which captures the change between the current price (`price_current`) and the previous price (`price_old`). This variable provides insights into recent price adjustments across vendors.
@@ -172,9 +165,7 @@ price_diff_plot
 
 ```
 
-
 ## Relationship Between Previous and Current Prices
-
 
 We assess the relationship between previous prices (`price_old`) and current prices (`price_current`) to understand price consistency and potential price elasticity across products.
 
@@ -213,7 +204,6 @@ price_relationship_plot
 
 
 ```
-
 
 ## Distribution of Price Differences
 
@@ -327,10 +317,10 @@ To evaluate our model’s performance, we assess the predictive accuracy of the 
 
 These results demonstrate that vendor identity and previous prices are significant predictors of current prices in the Canadian grocery sector, with implications for understanding competitive strategies and consumer price sensitivity in the market.
 
-
 # Discussion {#sec-discussion}
 
 ## Interpretation of Grocery Pricing Dynamics
+
 This study investigates the primary factors influencing current grocery prices in Canada by examining the Project Hammer dataset. Our Bayesian regression model reveals that prior prices (`price_old`), vendor identity (`vendor_name`), and recent price differences (`price_difference`) play significant roles in determining current prices. The influence of previous prices indicates price continuity across time, suggesting that grocery items tend to exhibit relatively stable pricing patterns with minor adjustments. Vendor-specific effects highlight the role of retailer pricing strategies, with some vendors maintaining consistently higher or lower prices. These vendor variations may reflect differences in market positioning, operational costs, or competitive strategies, impacting price consistency across the grocery sector.
 
 Additionally, the presence of both positive and negative values in the `price_difference` variable illustrates the prevalence of both price increases and decreases, underscoring the dynamic nature of grocery pricing in response to external market forces. External factors, such as supply chain disruptions, inflation, and seasonal demand fluctuations, likely contribute to the observed variability. This model highlights the complexity of pricing dynamics and the importance of historical pricing and vendor-specific factors in shaping current grocery prices across major Canadian retailers.
@@ -355,9 +345,6 @@ Increasing the model’s granularity to analyze price dynamics at the regional o
 
 Incorporating machine learning techniques could also improve the model's adaptability to rapidly changing market conditions, allowing for more nuanced forecasts of pricing trends. This approach could be particularly useful in the face of ongoing challenges such as inflation and supply chain disruptions, offering a valuable tool for policymakers and consumers interested in understanding and mitigating grocery costs in Canada.
 
-
 \newpage
 
 # References
-
-
